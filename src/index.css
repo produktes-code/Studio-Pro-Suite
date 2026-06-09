@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent-400: #fb7185;
+  --color-accent-500: #f43f5e;
+  --color-accent-600: #e11d48;
+  
+  --color-ai-400: #a78bfa;
+  --color-ai-500: #8b5cf6;
+  --color-ai-600: #7c3aed;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#09090b] text-gray-200 font-sans antialiased transition-colors duration-300;
+  }
+  
+  html.light-theme body {
+    @apply bg-[#f4f4f5] text-gray-900;
+  }
+  html.light-theme .bg-\[\#09090b\] {
+    @apply bg-[#f4f4f5];
+  }
+  html.light-theme .bg-\[\#141417\] {
+    @apply bg-white border-gray-200;
+  }
+  html.light-theme .bg-\[\#18181b\] {
+    @apply bg-gray-100 border-gray-300 text-gray-900;
+  }
+  html.light-theme .text-white {
+    @apply text-gray-900;
+  }
+  html.light-theme .text-gray-200 {
+    @apply text-gray-800;
+  }
+  html.light-theme .text-gray-400 {
+    @apply text-gray-600;
+  }
+  html.light-theme .text-gray-500 {
+    @apply text-gray-500;
+  }
+  html.light-theme .border-gray-800\/60,
+  html.light-theme .border-gray-800,
+  html.light-theme .border-gray-700 {
+    @apply border-gray-300;
+  }
+}
+
+/* Custom styles based on v2.5 and Studio Pro */
+@layer components {
+  .input-style {
+    @apply bg-[#18181b] border border-gray-800 text-gray-200 px-3 py-2 rounded-md w-full text-sm font-medium transition-all duration-200 outline-none;
+  }
+  .input-style:focus {
+    @apply border-rose-500 bg-[#27272a] shadow-[0_0_0_1px_#f43f5e];
+  }
+
+  .select-style {
+    @apply bg-[#18181b] border border-gray-800 text-gray-200 px-3 py-2 rounded-md w-full text-sm font-medium transition-all duration-200 outline-none appearance-none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2371717a'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.2em;
+  }
+  .select-style option {
+    @apply bg-[#141417] text-gray-200 p-2;
+  }
+  .select-style optgroup {
+    @apply text-rose-500 bg-[#09090b] font-bold;
+  }
+
+  .ctrl-label {
+    @apply text-[10px] text-gray-500 uppercase font-bold mb-1.5 block tracking-wider;
+  }
+
+  .btn {
+    @apply font-display font-semibold px-4 py-2 rounded-md transition-all duration-200 inline-flex items-center justify-center gap-2 uppercase text-xs tracking-wider cursor-pointer;
+  }
+  .btn-primary {
+    @apply bg-rose-500 text-white hover:brightness-110 shadow-[0_4px_14px_0_rgba(244,63,94,0.39)] hover:shadow-[0_6px_20px_rgba(244,63,94,0.23)];
+  }
+  .btn-secondary {
+    @apply border border-gray-700 text-gray-400 bg-transparent hover:bg-white/5 hover:text-white hover:border-gray-500;
+  }
+  .btn-ai {
+    @apply bg-gradient-to-br from-violet-600 to-rose-500 text-white hover:brightness-110 shadow-[0_0_15px_rgba(139,92,246,0.3)];
+  }
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(244, 63, 94, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 20px rgba(244, 63, 94, 0.8); }
+}
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+/* Custom scrollbar utility */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 99px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
