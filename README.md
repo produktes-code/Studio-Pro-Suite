@@ -172,6 +172,8 @@ El selector de idioma se encuentra en la cabecera del programa. Al cambiar el id
 
 ## 📋 Manual de Uso
 
+📥 **[Descargar Manual Extensivo y Tutorial en PDF](./Manual_Studio_Pro_Suite.pdf)**
+
 ### Cinema Generator Pro
 
 1. **Define el Concepto** (Sección 01): Escribe tu concepto narrativo principal en el campo de texto. Pulsa **Auto** para que el sistema rellene automáticamente los parámetros técnicos.
