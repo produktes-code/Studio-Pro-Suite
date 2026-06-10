@@ -172,7 +172,7 @@ El selector de idioma se encuentra en la cabecera del programa. Al cambiar el id
 
 ## 📋 Manual de Uso
 
-📥 **[Descargar Manual Extensivo y Tutorial en PDF](./Manual_Studio_Pro_Suite.pdf)**
+📥 **[Descargar Manual Extensivo y Tutorial en PDF](./manual.pdf)**
 
 ### Cinema Generator Pro
 
