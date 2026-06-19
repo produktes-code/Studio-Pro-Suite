@@ -1,78 +1,77 @@
-# Studio Pro Suite V3.0 - AI Cinematic Creation Ecosystem
+<p align="center">
+  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Studio Pro Suite Logo" />
+</p>
 
-![Status](https://img.shields.io/badge/Status-Production_Ready-success) ![License](https://img.shields.io/badge/License-Proprietary-red) ![Version](https://img.shields.io/badge/Version-3.0.0-blue)
+<h1 align="center">Studio Pro Suite V1.0.0</h1>
 
-**Studio Pro Suite** is the ultimate B2B parametric prompt generation engine and narrative layout creator for professional Directors of Photography, movie directors, and prompt engineers. This software serves as a technical bridge that translates abstract narrative concepts into highly specific, physically accurate camera and light payloads for state-of-the-art generative video AI engines (such as Sora, Veo, Runway, Midjourney, and Luma).
+<p align="center">
+  <b>The Ultimate AI Cinematic Creation and Parametric Camera Automation Ecosystem</b>
+</p>
 
-**Developed in collaboration by Antigravity AI and Jesús Ferrer (CHUS BZN).**
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge" alt="Version 1.0.0" />
+  <img src="https://img.shields.io/badge/Languages-7%20Supported-purple?style=for-the-badge" alt="7 Languages" />
+  <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-green?style=for-the-badge" alt="macOS & Windows" />
+  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status" />
+</p>
 
 ---
 
-## 🎯 Core Purpose
-Studio Pro Suite solves the problem of unpredictability in generative video prompting. By providing a structured, parameter-based dashboard, it allows creators to write and structure prompts using the exact grammar of real-world film sets—controlling camera bodies, anamorphic lenses, lighting schemes, atmospheres, and VFX parameters directly.
+## 🎯 Overview
+
+**Studio Pro Suite** is a state-of-the-art parametric prompt generation engine and narrative pre-production layout manager engineered for professional Directors of Photography, cinema directors, and generative AI prompt engineers. It functions as a precise hardware-to-aesthetic compiler that translates abstract cinematic intent into mathematically and physically accurate payloads for modern video generation engines (such as Sora, Veo, Runway, and Kling AI).
+
+> [!NOTE]
+> Engineered in close collaboration between **Antigravity AI** and **Jesús Ferrer (CHUS BZN)** to establish professional standards for AI cinematography.
 
 ---
 
 ## 🏗️ Technical Architecture
-Studio Pro Suite is built using a modern desktop application architecture:
 
-*   **Frontend (UI):** Powered by **React 19**, compiled with **Vite 8**, and styled with **Tailwind CSS v4** utilizing custom design tokens (Stitch System) for hardware-acceleration and premium dark aesthetics.
-*   **Shell (Desktop):** Structured in **Electron** for a native macOS and Windows desktop shell.
-*   **Data Models:** Persistent state managed via local memory and local storage, ensuring cross-platform coherence and local cache persistence for user prompts.
-
----
-
-## ⚙️ Key Features & Modules
-
-### 1. Cinema Generator Pro
-A multi-parameter prompt constructor divided into 8 logic sections:
-*   **Concept & Setup:** Enter your core prompt. Utilize **Enhance Prose** (powered by local LLM nodes) to enrich the text or **Auto-fill** to randomize variables.
-*   **Camera & Lenses:** Select camera bodies (IMAX 15/70mm, RED V-Raptor, Arri Alexa 65), lenses (Cooke Anamorphic, Zeiss Super Speed), focal lengths, and aperture settings (f-stop).
-*   **Physical Lighting:** Configure high-key, low-key, or neon-noir lighting, specifying direction, time of day, and modifiers.
-*   **Atmosphere & VFX:** Select weather conditions, color grading styles, and VFX composition rules.
-*   **Prompt Compiler:** View the constructed prompt and tokens in real-time, adjust weights, and simulation-render a preview frame.
-
-### 2. Script Writer Pro
-A narrative pre-production engine to translate story ideas into scenes:
-*   **Story Premise:** Configure logline, emotional tone, and narrative structures (3-Act, Hero's Journey).
-*   **AI Cast & Crew:** Assign virtual directors (Kubrick, Villeneuve) and virtual DoPs (Roger Deakins, Greig Fraser) whose styles the compiler will adopt.
-*   **Character Memory:** Build characters with specific trigger words and physical traits to maintain visual continuity across shots.
-*   **Scene Breakdown:** Generate shot breakdown lists, export prompts, or send them to ZEO 4.
-
-### 3. ZEO 4 Cinema Studio
-The ultimate advanced camera movement vector engine:
-*   **Physical Vector Controls:** Adjust 3D coordinate sliders representing camera motion: `Pan (X)`, `Tilt (Y)`, `Zoom (Z)`, `Roll (Rot-Z)`.
-*   **Keyframe Conditioning:** Feed starting and ending frames to control the video generator.
-*   **Payload Output:** Compile payloads directly to JSON structures and CLI commands ready to copy and paste into enterprise rendering APIs.
+*   **Frontend Interface:** Built with **React 19** and compiled via **Vite 8** using a high-performance, dark-theme *Glassmorphism* UI system.
+*   **Desktop Shell:** Containerized in **Electron** providing native hardware access, custom menu systems, and cross-platform native execution.
+*   **System Styling:** Designed using vanilla CSS and custom styling tokens, ensuring zero layout overlaps and absolute responsiveness.
 
 ---
 
-## 🚀 Installation & Usage (Desktop Mode)
+## ⚙️ Core Modules & Features
 
-### macOS Setup
-1. Download the installation DMG package: `Studio Pro Suite-0.0.0.dmg`.
-2. Mount the DMG and drag **Studio Pro Suite** to your **Applications** folder.
-3. If running from source/development:
-   ```bash
-   npm install
-   npm run electron:dev
-   ```
+### 🎬 Cinema Generator Pro
+An advanced 8-stage visual parameters compiler:
+*   **Camera Bodies:** Choose from over 80 industry-standard camera configurations (e.g., IMAX 70mm, Arri Alexa LF, RED V-Raptor, CCTV, Thermal).
+*   **Director Styles:** Incorporates preset stylistic profiles of legendary directors (e.g., Roger Deakins, Greig Fraser, Lubezki).
+*   **Lens Optics:** Adjust T-stop aperture (T1.2 to T22) and select Cooke Anamorphic or Zeiss Spherical configurations.
 
-### Production Build
-To pack native desktop installers for Windows and macOS:
-```bash
-npm run pack:all
-```
-This outputs a `.dmg` and `.exe` package under the `dist-electron` folder.
+### ✍️ Script Writer Pro
+A narrative-focused screenplay and shot-list generator:
+*   **AI Cast & Crew:** Simulates the collaborative styles of specific directors and cinematographers to modulate the prompt syntax.
+*   **Character Memory:** Restricts character rendering prompts to maintain consistent facial features and clothing styles across sequential generations.
 
----
-
-## 📋 Technical User Manual
-
-📥 **[Download Comprehensive PDF Manual](./manual.pdf)**
-
-For a complete step-by-step tutorial on parameter usage, installation, and APIs in the 7 supported languages (Spanish, English, German, Russian, Japanese, Ukrainian, and Chinese), refer to the pre-compiled PDF manual located in the root of the folder.
+### 🔬 ZEO-4 Cloud Engine
+A rendering latency simulator and payload editor:
+*   **Text-to-Audio Synthesizer:** Processes raw script descriptions into synthesized voice payloads.
+*   **Hardware Latency Monitor:** Provides live rendering latency and queue estimations.
 
 ---
 
-*© Studio Pro Suite 3.0 — Jesús Ferrer (CHUS BZN) & Antigravity AI. All rights reserved.*
+## 🚀 Desktop Installation
+
+### 🍎 macOS
+1. Download `Studio Pro Suite-1.0.0.dmg` from the **Releases** tab.
+2. Open the `.dmg` and drag the application to your `Applications` folder.
+
+### 🔌 Windows
+1. Download `Studio Pro Suite Setup 1.0.0.exe` from the **Releases** tab.
+2. Run the installer and follow the setup wizard.
+
+---
+
+## 📖 Technical User Manual
+
+📄 **[Download the Multilingual Technical Manual (PDF)](./manual.pdf)**
+
+A comprehensive user guide is included directly in this repository as [manual.pdf](./manual.pdf). It contains step-by-step instructions, parameters descriptions, troubleshooting guides, and API integration walk-throughs translated into **7 languages** (Spanish, English, German, Russian, Japanese, Ukrainian, and Chinese).
+
+---
+
+*© 2026 Studio Pro Suite — Jesús Ferrer (CHUS BZN) — Proprietary License. All rights reserved.*
