@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Camera, Lightbulb, Terminal, Zap, Wand2, Trash2, Film, Dices, ChevronDown, BrainCircuit, RefreshCw, Loader2, Play, CheckCircle, Cloud, Sparkles, MinusCircle, Download } from 'lucide-react';
+import { Camera, Lightbulb, Terminal, Zap, Wand2, Trash2, Film, Dices, ChevronDown, BrainCircuit, RefreshCw, Loader2, Play, CheckCircle, Cloud, Sparkles, MinusCircle, Download, UploadCloud, Users, Image as ImageIcon } from 'lucide-react';
 import { cinemaLibraryV3 } from './data/cinemaLibraryV3';
 import { translationsUI } from './data/translationsUI';
 import { translateOptionV3 } from './data/translationsOptionsV3';
@@ -73,6 +73,7 @@ const countItems = (arr) => flattenOptions(arr).length;
 
 const CinemaGenerator3 = ({ language = 'es' }) => {
   const [config, setConfig] = useState({});
+  const [generationMode, setGenerationMode] = useState('t2v'); // 't2v', 'i2v', 'v2v', 'face_swap'
   const [promptOutput, setPromptOutput] = useState('Waiting for configuration...');
   const [tokens, setTokens] = useState(0);
   const [isSimulating, setIsSimulating] = useState(false);
@@ -89,8 +90,6 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
     setConfig(prev => ({ ...prev, [key]: value }));
   };
 
-  // ── FIX: getOptionText now correctly handles nested group structures ──────
-  // Always returns English for AI prompt compatibility
   const getOptionText = (categoryArray, value) => {
     if (!categoryArray || !value) return null;
     const flat = flattenOptions(categoryArray);
@@ -101,6 +100,17 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
   const generatePrompt = () => {
     let parts = [];
     
+    // Engine Mode Prefix
+    if (generationMode === 'v2v') {
+      parts.push(`[VIDEO-TO-VIDEO STYLIZE ENGINE]`);
+      if (config.v2v_style) parts.push(`Target Style: ${getOptionText(cinemaLibraryV3.videoToVideoStyles, config.v2v_style)}.`);
+    } else if (generationMode === 'face_swap') {
+      parts.push(`[AVATAR & FACE SWAP ENGINE]`);
+      if (config.marketing_mode) parts.push(`Operation: ${getOptionText(cinemaLibraryV3.marketingModes, config.marketing_mode)}.`);
+    } else if (generationMode === 'i2v') {
+      parts.push(`[IMAGE-TO-VIDEO ENGINE] Base Image attached.`);
+    }
+
     // 1. Concept & Context
     if (config.story_concept) parts.push(`Cinematic scene: ${config.story_concept}.`);
     if (config.setup) parts.push(config.setup);
@@ -115,9 +125,6 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
 
     if (config.camera_type || config.lens_type || config.film_stock) {
       let gear = [];
-      
-
-
       if (config.camera_type) {
         const text = getOptionText(cinemaLibraryV3.cameras, config.camera_type) || config.camera_type;
         gear.push(usePromptWeights ? `(${text}:1.2)` : `Shot on ${text}`);
@@ -153,8 +160,8 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
     
     if (lightingParts.length > 0) parts.push(`Lighting: ${lightingParts.join(' ')}.`);
 
-    // 4. Style Assistant
-    if (config.style_assistant) parts.push(`Style: ${config.style_assistant}.`);
+    // 4. Style Assistant (Directors)
+    if (config.art_style) parts.push(`Directed by: ${getOptionText(cinemaLibraryV3.artStyles, config.art_style)}.`);
 
     // 5. Atmosphere & Environment
     if (config.atmosphere) parts.push(`Atmosphere: ${getOptionText(cinemaLibraryV3.atmosphere, config.atmosphere)}.`);
@@ -192,11 +199,9 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     generatePrompt();
-    setSimulationResult(null); // Reset simulation on change
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [config, usePromptWeights, language]);
+    setSimulationResult(null);
+  }, [config, usePromptWeights, language, generationMode]);
 
   const CINEMATIC_FRAMES = [
     { url: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800", tags: ["dark","noir","night","thriller","shadow"] },
@@ -210,11 +215,10 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
   ];
 
   const handleSimulate = () => {
-    if (!config.story_concept && !config.camera_type && !config.lighting_scheme) return;
+    if (!config.story_concept && generationMode === 't2v') return;
     setIsSimulating(true);
     setSimulationResult(null);
     
-    // Mood-based image selection from concept keywords
     const concept = (config.story_concept || '').toLowerCase();
     const scored = CINEMATIC_FRAMES.map(frame => ({
       ...frame,
@@ -244,24 +248,6 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
     }, 1200);
   };
 
-  const handleAutoFill = () => {
-    const randomOption = (arr) => {
-      const flat = flattenOptions(arr);
-      if (!flat.length) return '';
-      return flat[Math.floor(Math.random() * flat.length)].value;
-    };
-
-    setConfig(prev => ({
-      ...prev,
-      camera_type: randomOption(cinemaLibraryV3.cameras),
-      lens_type: randomOption(cinemaLibraryV3.lenses),
-      lighting_scheme: randomOption(cinemaLibraryV3.lightingSchemes),
-      time_of_day: randomOption(cinemaLibraryV3.timesOfDay),
-      atmosphere: randomOption(cinemaLibraryV3.atmosphere),
-      color_grade: randomOption(cinemaLibraryV3.colorGrades)
-    }));
-  };
-
   const handleCopy = () => {
     if (tokens === 0) return;
     navigator.clipboard.writeText(promptOutput);
@@ -269,328 +255,267 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
     setTimeout(() => setIsCopied(false), 1500);
   };
 
-  const handleDownload = () => {
-    if (tokens === 0) return;
-    const blob = new Blob([promptOutput], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `studio-pro-prompt-${Date.now()}.txt`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const totalAssets = [
-    cinemaLibraryV3.cameras, cinemaLibraryV3.lenses, cinemaLibraryV3.filmStocks,
-    cinemaLibraryV3.shotTypes, cinemaLibraryV3.angles, cinemaLibraryV3.motions,
-    cinemaLibraryV3.lightingSchemes, cinemaLibraryV3.lightDirections, cinemaLibraryV3.lightQualities,
-    cinemaLibraryV3.atmosphere, cinemaLibraryV3.palettes, cinemaLibraryV3.colorGrades,
-    cinemaLibraryV3.visualEffects, cinemaLibraryV3.motionEffects, cinemaLibraryV3.lensFilters,
-    cinemaLibraryV3.compositionRules, cinemaLibraryV3.artStyles, cinemaLibraryV3.periods,
-    cinemaLibraryV3.focalLengths, cinemaLibraryV3.apertures, cinemaLibraryV3.formats,
-  ].reduce((sum, arr) => sum + countItems(arr), 0);
-
   return (
-    <div className="flex h-full overflow-hidden">
+    <div className="flex w-full h-[calc(100vh-6rem-2rem)] gap-2 p-2 bg-[#0a0a0c]">
       
-      {/* LEFT COLUMN: CONTROLS */}
-      <div className="w-2/3 h-full overflow-y-auto custom-scrollbar pr-4 py-4 pl-8">
-        
-        {/* HEADER AREA INSIDE GENERATOR */}
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h2 className="text-xl font-display font-black text-white tracking-tighter uppercase flex items-center gap-2">
-              Cinema Generator <span className="text-rose-500">Pro</span>
-              <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded ml-1 tracking-widest font-bold border border-white/20">v3.0</span>
-            </h2>
-            <p className="text-xs text-gray-500 mt-1 flex gap-3 items-center font-medium">
-              <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-rose-500" /> {totalAssets}+ {language === 'es' ? 'Assets' : language === 'ru' ? 'Ассеты' : 'Assets'}</span>
-              <span>|</span>
-              <span className="flex items-center gap-1"><BrainCircuit className="w-3 h-3 text-violet-500" /> Gemini Adaptive Engine</span>
-            </p>
-          </div>
-          <div className="flex items-center gap-2 bg-green-500/10 px-3 py-1.5 rounded-full border border-green-500/20">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse-glow"></span>
-            <span className="text-[10px] text-green-400 uppercase font-bold tracking-wider">
-              {language === 'es' ? 'Motor Listo' : 
-               language === 'ru' ? 'Движок готов' : 
-               language === 'de' ? 'Engine bereit' : 
-               language === 'ja' ? '準備完了' : 
-               language === 'uk' ? 'Двигун готовий' : 
-               language === 'zh' ? '引擎就绪' : 
-               'Engine Ready'}
-            </span>
-          </div>
-        </div>
-
-        <div className="space-y-4 pb-20">
-          
-          {/* NARRATIVE */}
-          <CollapsibleSection 
-            title={t('story_setup')} 
-            icon={BrainCircuit} 
-            colorClass="text-violet-500" 
-            defaultOpen={true}
-            secondaryAction={
-              <button 
-                onClick={handleEnhanceProse}
-                disabled={!config.story_concept || isEnhancing}
-                className="text-[10px] text-violet-400 hover:text-white disabled:opacity-50 uppercase tracking-wider font-bold flex items-center gap-1 transition-colors cursor-pointer"
-              >
-                {isEnhancing ? <RefreshCw className="w-3 h-3 animate-spin" /> : <Wand2 className="w-3 h-3" />} 
-                {isEnhancing ? t('enhancing') : t('enhance_prompt')}
-              </button>
-            }
-          >
-            <div className="flex gap-2 mb-4 bg-[#09090b] p-2.5 rounded-md border border-violet-500/20 focus-within:border-violet-500/50 transition-colors">
-              <input 
-                type="text" 
-                placeholder={t('story_concept_placeholder')} 
-                className="bg-transparent border-none text-white text-sm flex-grow outline-none placeholder:text-gray-600"
-                value={config.story_concept || ''}
-                onChange={(e) => handleConfigChange('story_concept', e.target.value)}
-              />
-              <button onClick={handleAutoFill} className="btn btn-ai px-4 py-1.5 !text-[10px] cursor-pointer" title={language === 'es' ? 'Auto-completar' : language === 'ru' ? 'Автозаполнение' : language === 'de' ? 'Automatisch ausfüllen' : language === 'ja' ? '自動入力' : language === 'uk' ? 'Автозаповнення' : language === 'zh' ? '自动填充' : 'Auto-fill'}>
-                <Dices className="w-3 h-3" /> Auto
-              </button>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <label className="ctrl-label text-violet-400">{t('setup_scene')}</label>
-                <textarea 
-                  className="input-style h-20 text-xs" placeholder={t('setup_placeholder')}
-                  value={config.setup || ''} onChange={(e) => handleConfigChange('setup', e.target.value)}
-                ></textarea>
-              </div>
-              <div>
-                <label className="ctrl-label text-violet-400">{t('action_char')}</label>
-                <textarea 
-                  className="input-style h-20 text-xs" placeholder={t('action_placeholder')}
-                  value={config.action || ''} onChange={(e) => handleConfigChange('action', e.target.value)}
-                ></textarea>
-              </div>
-              <div>
-                <label className="ctrl-label text-violet-400">{t('visual_details')}</label>
-                <textarea 
-                  className="input-style h-20 text-xs" placeholder={t('visual_placeholder')}
-                  value={config.visual || ''} onChange={(e) => handleConfigChange('visual', e.target.value)}
-                ></textarea>
-              </div>
-            </div>
-          </CollapsibleSection>
-
-          {/* CAMERA */}
-          <CollapsibleSection title={t('camera_config')} icon={Camera} colorClass="text-rose-500" defaultOpen={true}>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <SelectGroup label={t('camera_body')} id="camera_type" options={cinemaLibraryV3?.cameras} value={config.camera_type} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('film_stock')} id="film_stock" options={cinemaLibraryV3?.filmStocks} value={config.film_stock} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('format')} id="format_type" options={cinemaLibraryV3?.formats} value={config.format_type} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('lenses')} id="lens_type" options={cinemaLibraryV3?.lenses} value={config.lens_type} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('focal')} id="focal_length" options={cinemaLibraryV3?.focalLengths} value={config.focal_length} onChange={handleConfigChange} highlightClass="text-rose-400" language={language} />
-              <SelectGroup label={t('aperture')} id="aperture" options={cinemaLibraryV3?.apertures} value={config.aperture} onChange={handleConfigChange} highlightClass="text-rose-400" language={language} />
-              <SelectGroup label={t('angle')} id="camera_angle" options={cinemaLibraryV3?.angles} value={config.camera_angle} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('shot_type')} id="shot_type" options={cinemaLibraryV3?.shotTypes} value={config.shot_type} onChange={handleConfigChange} language={language} />
-              <div className="col-span-2">
-                <SelectGroup label={t('motion')} id="motion" options={cinemaLibraryV3?.motions} value={config.motion} onChange={handleConfigChange} language={language} />
-              </div>
-            </div>
-          </CollapsibleSection>
-
-          {/* LIGHTING */}
-          <CollapsibleSection title={t('creative_lighting')} icon={Lightbulb} colorClass="text-blue-400">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <SelectGroup label={t('scheme')} id="lighting_scheme" options={cinemaLibraryV3?.lightingSchemes} value={config.lighting_scheme} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('direction')} id="light_direction" options={cinemaLibraryV3?.lightDirections} value={config.light_direction} onChange={handleConfigChange} highlightClass="text-blue-400" language={language} />
-              <SelectGroup label={t('quality')} id="light_quality" options={cinemaLibraryV3?.lightQualities} value={config.light_quality} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('time_day')} id="time_of_day" options={cinemaLibraryV3?.timesOfDay} value={config.time_of_day} onChange={handleConfigChange} language={language} />
-            </div>
-          </CollapsibleSection>
-
-          {/* ATMOSPHERE & COLOR */}
-          <CollapsibleSection title={t('atmosphere_weather')} icon={Cloud} colorClass="text-cyan-400">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <SelectGroup label={t('weather')} id="atmosphere" options={cinemaLibraryV3?.atmosphere} value={config.atmosphere} onChange={handleConfigChange} highlightClass="text-cyan-400" language={language} />
-              <SelectGroup label={t('color_palette')} id="palette" options={cinemaLibraryV3?.palettes} value={config.palette} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('color_grade')} id="color_grade" options={cinemaLibraryV3?.colorGrades} value={config.color_grade} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('period')} id="period" options={cinemaLibraryV3?.periods} value={config.period} onChange={handleConfigChange} language={language} />
-            </div>
-          </CollapsibleSection>
-
-          {/* VISUAL FX */}
-          <CollapsibleSection title={t('fx_composition')} icon={Sparkles} colorClass="text-amber-400">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              <SelectGroup label={t('visual_fx')} id="visual_effect" options={cinemaLibraryV3?.visualEffects} value={config.visual_effect} onChange={handleConfigChange} highlightClass="text-amber-400" language={language} />
-              <SelectGroup label={t('motion_fx')} id="motion_effect" options={cinemaLibraryV3?.motionEffects} value={config.motion_effect} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('lens_filter')} id="lens_filter" options={cinemaLibraryV3?.lensFilters} value={config.lens_filter} onChange={handleConfigChange} language={language} />
-              <SelectGroup label={t('composition')} id="composition_rule" options={cinemaLibraryV3?.compositionRules} value={config.composition_rule} onChange={handleConfigChange} language={language} />
-            </div>
-          </CollapsibleSection>
-
-          {/* NEGATIVE PROMPT */}
-          <CollapsibleSection title={t('neg_preset')} icon={MinusCircle} colorClass="text-red-400">
-            <div className="space-y-3">
-              <SelectGroup label={t('neg_preset')} id="negative_preset" options={cinemaLibraryV3?.negativePresets} value={config.negative_preset} onChange={handleConfigChange} highlightClass="text-red-400" language={language} />
-              <div>
-                <label className="ctrl-label text-red-400">{t('custom_neg')}</label>
-                <textarea
-                  rows="2"
-                  placeholder="E.g., blurry, distorted, ugly hands..."
-                  className="input-style text-xs font-mono text-red-300 border-red-900/30 focus:border-red-500/50"
-                  value={config.custom_negative || ''}
-                  onChange={(e) => handleConfigChange('custom_negative', e.target.value)}
-                />
-              </div>
-            </div>
-          </CollapsibleSection>
-
-        </div>
-      </div>
-
-      {/* RIGHT COLUMN: PREVIEW & OUTPUT */}
-      <div className="w-1/3 bg-[#0d0d10] border-l border-gray-800/60 p-4 flex flex-col relative z-30 shadow-[-10px_0_30px_rgba(0,0,0,0.5)]">
-        
-        {/* CONSOLE */}
-        <div className="bg-[#141417] p-4 rounded-lg border border-gray-800/80 shadow-xl flex flex-col flex-grow relative overflow-hidden">
-          <div className="flex justify-between items-center mb-3 flex-shrink-0">
-            <h2 className="text-[11px] font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
-              <Terminal className="w-3 h-3 text-rose-500" /> {t('prompt_console')}
-            </h2>
-            <div className="flex items-center gap-3">
-              <label className="flex items-center gap-1.5 cursor-pointer group" htmlFor="prompt-weights-toggle">
-                <div className={`w-6 h-3.5 rounded-full relative transition-colors ${usePromptWeights ? 'bg-rose-500' : 'bg-gray-700'}`}>
-                  <div className={`absolute top-0.5 left-0.5 bg-white w-2.5 h-2.5 rounded-full transition-transform ${usePromptWeights ? 'translate-x-2.5' : ''}`}></div>
-                </div>
-                <input
-                  id="prompt-weights-toggle"
-                  type="checkbox"
-                  className="sr-only"
-                  checked={usePromptWeights}
-                  onChange={(e) => setUsePromptWeights(e.target.checked)}
-                />
-                <span className="text-[9px] uppercase font-bold text-gray-400 group-hover:text-gray-300 transition-colors">{t('prompt_weights').split(' ')[0]}</span>
-              </label>
-              <div className="flex gap-2">
-                <span className={`text-[10px] px-2 py-0.5 rounded font-mono border ${tokens > 0 ? 'bg-rose-500/10 text-rose-400 border-rose-500/20' : 'bg-gray-900 text-gray-400 border-gray-800'}`}>
-                  {tokens} {t('tokens').toUpperCase()}
-                </span>
-                <div className="bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded text-[10px] font-bold border border-blue-500/20">VEO</div>
-              </div>
-            </div>
+      {/* LEFT PANEL: PARAMETERS */}
+      <aside className="w-[360px] flex-shrink-0 bg-surface-container-low/30 backdrop-blur-xl border border-white/5 rounded-lg flex flex-col overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-rose-500/30 to-transparent"></div>
+        <div className="p-3 border-b border-white/5 bg-surface-container-lowest/50 flex flex-col gap-3">
+          <div className="flex items-center justify-between">
+            <span className="font-label-caps text-on-surface tracking-widest text-[10px] uppercase">Engine Mode</span>
+            <Zap className="w-[14px] h-[14px] text-on-surface-variant" />
           </div>
           
-          <div className="bg-[#09090b] p-3 rounded-md border border-gray-800/60 flex-grow overflow-y-auto relative shadow-inner min-h-0">
-            {tokens > 0 ? (
-              <p className="text-gray-200 text-sm leading-relaxed font-mono whitespace-pre-wrap">{promptOutput}</p>
-            ) : (
-              <div className="h-full flex items-center justify-center text-gray-600 font-mono text-sm text-center px-4">
-                {promptOutput}
-              </div>
-            )}
-          </div>
-
-          <div className="flex gap-2 mt-4 flex-shrink-0">
+          {/* Phase 3: Generation Modes */}
+          <div className="grid grid-cols-4 gap-1 p-1 bg-black/40 rounded-lg border border-white/5">
             <button 
-              className={`btn flex-grow text-[10px] py-2.5 cursor-pointer disabled:opacity-50 transition-all duration-200 ${isCopied ? 'bg-emerald-500 text-white border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.3)]' : 'btn-primary'}`}
-              disabled={tokens === 0}
-              onClick={handleCopy}
+              onClick={() => setGenerationMode('t2v')}
+              className={`flex flex-col items-center justify-center p-2 rounded-md transition-colors ${generationMode === 't2v' ? 'bg-primary/20 text-primary border border-primary/30' : 'text-on-surface-variant hover:bg-white/5 hover:text-white border border-transparent'}`}
             >
-              <CheckCircle className="w-3 h-3" /> {isCopied ? (language === 'es' ? '¡Copiado!' : language === 'ru' ? 'Скопировано!' : language === 'de' ? 'Kopiert!' : language === 'ja' ? 'コピー完了' : language === 'uk' ? 'Скопійовано!' : language === 'zh' ? '已复制！' : 'Copied!') : t('copy_prompt')}
-            </button>
-            <button
-              className="btn btn-secondary px-3 py-2.5 cursor-pointer hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/30"
-              disabled={tokens === 0}
-              onClick={handleDownload}
-              title={language === 'es' ? 'Descargar como .txt' : language === 'ru' ? 'Скачать как .txt' : language === 'de' ? 'Als .txt herunterladen' : language === 'ja' ? '.txtとしてダウンロード' : language === 'uk' ? 'Завантажити як .txt' : language === 'zh' ? '下载为 .txt' : 'Download as .txt'}
-            >
-              <Download className="w-3 h-3" />
+              <Terminal className="w-4 h-4 mb-1" />
+              <span className="text-[9px] font-bold tracking-wider">T2V</span>
             </button>
             <button 
-              className="btn btn-secondary px-3 py-2.5 cursor-pointer hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30" 
-              onClick={() => { setConfig({}); setPromptOutput(t('prompt_placeholder')); setTokens(0); setIsCopied(false); }}
-              title={language === 'es' ? 'Limpiar todo' : language === 'ru' ? 'Очистить всё' : language === 'de' ? 'Alles löschen' : language === 'ja' ? 'すべてクリア' : language === 'uk' ? 'Очистити все' : language === 'zh' ? '清除全部' : 'Clear all'}
+              onClick={() => setGenerationMode('i2v')}
+              className={`flex flex-col items-center justify-center p-2 rounded-md transition-colors ${generationMode === 'i2v' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'text-on-surface-variant hover:bg-white/5 hover:text-white border border-transparent'}`}
             >
-              <Trash2 className="w-3 h-3" />
+              <ImageIcon className="w-4 h-4 mb-1" />
+              <span className="text-[9px] font-bold tracking-wider">I2V</span>
+            </button>
+            <button 
+              onClick={() => setGenerationMode('v2v')}
+              className={`flex flex-col items-center justify-center p-2 rounded-md transition-colors ${generationMode === 'v2v' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30' : 'text-on-surface-variant hover:bg-white/5 hover:text-white border border-transparent'}`}
+            >
+              <Film className="w-4 h-4 mb-1" />
+              <span className="text-[9px] font-bold tracking-wider">V2V</span>
+            </button>
+            <button 
+              onClick={() => setGenerationMode('face_swap')}
+              className={`flex flex-col items-center justify-center p-2 rounded-md transition-colors ${generationMode === 'face_swap' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30' : 'text-on-surface-variant hover:bg-white/5 hover:text-white border border-transparent'}`}
+            >
+              <Users className="w-4 h-4 mb-1" />
+              <span className="text-[9px] font-bold tracking-wider">FACE</span>
             </button>
           </div>
         </div>
 
-        {/* BOTTOM TOOLS */}
-        <div className="mt-4 space-y-3 flex-shrink-0">
-          <div className="bg-[#141417] p-3 rounded-lg border border-gray-800/60">
-            <div className="grid grid-cols-2 gap-3 mb-3">
-              <SelectGroup label={t('target_model')} id="target_model" options={cinemaLibraryV3?.models} value={config.target_model} onChange={handleConfigChange} highlightClass="text-rose-500" language={language} />
-              <div className="flex flex-col gap-1.5">
-                <label className="ctrl-label uppercase">
-                  {config.target_model ? `${getOptionText(cinemaLibraryV3.models, config.target_model)} API KEY` : 'API KEY (GLOBAL)'}
-                </label>
-                <input type="password" placeholder="sk-..." className="input-style bg-[#09090b]" />
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-4">
+          
+          {/* MEDIA UPLOADERS (Dynamic based on mode) */}
+          {(generationMode === 'i2v' || generationMode === 'v2v') && (
+            <CollapsibleSection title={generationMode === 'i2v' ? 'Base Image' : 'Source Video'} icon={UploadCloud} colorClass={generationMode === 'i2v' ? 'text-blue-400' : 'text-rose-400'} defaultOpen={true}>
+              <div className="border-2 border-dashed border-white/10 rounded-lg p-6 flex flex-col items-center justify-center text-on-surface-variant hover:text-white hover:border-white/30 transition-colors cursor-pointer bg-black/20">
+                <UploadCloud className="w-8 h-8 mb-2 opacity-50" />
+                <span className="text-xs font-medium">Drop media file here</span>
+                <span className="text-[10px] opacity-50 mt-1">or click to browse</span>
               </div>
-            </div>
-            <div>
-              <label className="ctrl-label">{t('style_assistant').split(' / ')[0]}</label>
-              <div className="flex gap-2">
-                <input 
-                  type="text" 
-                  placeholder="E.g., Cyberpunk..." 
-                  className="input-style flex-grow bg-[#09090b]" 
-                  value={config.style_assistant || ''}
-                  onChange={(e) => handleConfigChange('style_assistant', e.target.value)}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* SIMULATOR */}
-          <div className="bg-[#141417] p-2 rounded-lg border border-gray-800/60 overflow-hidden">
-            <div 
-              className={`h-32 border border-gray-800 rounded flex items-center justify-center relative group overflow-hidden transition-all duration-500 ${
-                simulationResult ? 'bg-black' : 'bg-[#09090b]'
-              }`} 
-              style={!simulationResult ? { backgroundImage: 'radial-gradient(#222 1px, transparent 1px)', backgroundSize: '16px 16px' } : {}}
-            >
-              {isSimulating ? (
-                <div className="flex flex-col items-center text-rose-500">
-                  <Loader2 className="w-8 h-8 mb-2 animate-spin" />
-                  <span className="text-[10px] uppercase tracking-widest font-bold">{t('simulating')}</span>
-                </div>
-              ) : simulationResult ? (
-                <div className="absolute inset-0">
-                  <img src={simulationResult} alt="Simulación" className="w-full h-full object-cover opacity-80" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
-                    <span className="text-[10px] text-white font-bold tracking-widest uppercase flex items-center gap-1">
-                      <CheckCircle className="w-3 h-3 text-green-400"/> 
-                      {language === 'es' ? 'Generación Exitosa' : 
-                       language === 'ru' ? 'Успешная генерация' : 
-                       language === 'de' ? 'Erfolgreich generiert' : 
-                       language === 'ja' ? '生成に成功しました' : 
-                       language === 'uk' ? 'Генерація успішна' : 
-                       language === 'zh' ? '生成成功' : 
-                       'Generation Successful'}
-                    </span>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex flex-col items-center text-gray-600 group-hover:text-gray-400 transition-colors">
-                  <Film className="w-8 h-8 mb-2 opacity-50" />
-                  <span className="text-[10px] uppercase tracking-widest font-bold opacity-50">{t('preview_sim')}</span>
+              
+              {generationMode === 'v2v' && (
+                <div className="mt-4">
+                  <SelectGroup label="Style Transfer Filter (Domo AI Protocol)" id="v2v_style" options={cinemaLibraryV3?.videoToVideoStyles} value={config.v2v_style} onChange={handleConfigChange} highlightClass="text-rose-400" language={language} />
                 </div>
               )}
+            </CollapsibleSection>
+          )}
+
+          {generationMode === 'face_swap' && (
+            <CollapsibleSection title="Marketing & Avatar Specs" icon={Users} colorClass="text-purple-400" defaultOpen={true}>
+              <div className="space-y-4">
+                <SelectGroup label="Operation Mode (Akool Protocol)" id="marketing_mode" options={cinemaLibraryV3?.marketingModes} value={config.marketing_mode} onChange={handleConfigChange} highlightClass="text-purple-400" language={language} />
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="border-2 border-dashed border-purple-500/20 rounded-lg p-4 flex flex-col items-center justify-center text-purple-400/70 hover:text-purple-400 hover:border-purple-500/50 transition-colors cursor-pointer bg-purple-900/10 text-center">
+                    <ImageIcon className="w-6 h-6 mb-2" />
+                    <span className="text-[10px] font-medium leading-tight">Source<br/>Face Image</span>
+                  </div>
+                  <div className="border-2 border-dashed border-white/10 rounded-lg p-4 flex flex-col items-center justify-center text-on-surface-variant hover:text-white hover:border-white/30 transition-colors cursor-pointer bg-black/20 text-center">
+                    <Film className="w-6 h-6 mb-2 opacity-50" />
+                    <span className="text-[10px] font-medium leading-tight">Target<br/>Video Media</span>
+                  </div>
+                </div>
+              </div>
+            </CollapsibleSection>
+          )}
+
+          {/* MAIN PROMPT BUILDER */}
+          <CollapsibleSection title={t('story_setup')} icon={BrainCircuit} colorClass="text-emerald-500" defaultOpen={true}>
+            <div className="space-y-3">
+              <div>
+                <label className="font-body-sm text-on-surface-variant text-xs mb-1 block">Prompt / Description</label>
+                <div className="flex gap-2">
+                  <textarea 
+                    className="w-full bg-[#0d0c0f] border border-white/10 rounded p-2 font-body-sm text-on-surface focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/20 focus:outline-none resize-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] custom-scrollbar" 
+                    rows="3"
+                    placeholder={generationMode === 'face_swap' ? "Optional instructions for lip-sync script..." : t('story_concept_placeholder')}
+                    value={config.story_concept || ''}
+                    onChange={(e) => handleConfigChange('story_concept', e.target.value)}
+                  ></textarea>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <SelectGroup label="Director / Art Style" id="art_style" options={cinemaLibraryV3?.artStyles} value={config.art_style} onChange={handleConfigChange} highlightClass="text-emerald-400" language={language} />
+                <SelectGroup label={t('weather')} id="atmosphere" options={cinemaLibraryV3?.atmosphere} value={config.atmosphere} onChange={handleConfigChange} language={language} />
+              </div>
+              <div className="flex gap-2 mt-2">
+                <button onClick={handleEnhanceProse} disabled={!config.story_concept || isEnhancing} className="flex-1 py-1.5 bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/20 rounded text-[10px] uppercase tracking-widest font-bold text-emerald-400 flex justify-center items-center gap-1 transition-colors cursor-pointer disabled:opacity-50">
+                  <Wand2 className="w-3 h-3"/> {isEnhancing ? '...' : 'Enhance Prompt'}
+                </button>
+              </div>
             </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title={t('camera_config')} icon={Camera} colorClass="text-rose-500">
+            <div className="space-y-3">
+              <SelectGroup label={t('camera_body')} id="camera_type" options={cinemaLibraryV3?.cameras} value={config.camera_type} onChange={handleConfigChange} highlightClass="text-rose-400" language={language} />
+              <div className="grid grid-cols-2 gap-2">
+                <SelectGroup label={t('lenses')} id="lens_type" options={cinemaLibraryV3?.lenses} value={config.lens_type} onChange={handleConfigChange} language={language} />
+                <SelectGroup label="Motion" id="motion" options={cinemaLibraryV3?.motions} value={config.motion} onChange={handleConfigChange} highlightClass="text-orange-400" language={language} />
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <SelectGroup label={t('shot_type')} id="shot_type" options={cinemaLibraryV3?.shotTypes} value={config.shot_type} onChange={handleConfigChange} language={language} />
+                <SelectGroup label="Angle" id="camera_angle" options={cinemaLibraryV3?.angles} value={config.camera_angle} onChange={handleConfigChange} language={language} />
+              </div>
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title={t('creative_lighting')} icon={Lightbulb} colorClass="text-blue-400">
+            <div className="space-y-3">
+              <SelectGroup label={t('scheme')} id="lighting_scheme" options={cinemaLibraryV3?.lightingSchemes} value={config.lighting_scheme} onChange={handleConfigChange} language={language} />
+              <div className="grid grid-cols-2 gap-2">
+                <SelectGroup label={t('direction')} id="light_direction" options={cinemaLibraryV3?.lightDirections} value={config.light_direction} onChange={handleConfigChange} highlightClass="text-blue-400" language={language} />
+                <SelectGroup label={t('quality')} id="light_quality" options={cinemaLibraryV3?.lightQualities} value={config.light_quality} onChange={handleConfigChange} language={language} />
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <SelectGroup label={t('time_day')} id="time_of_day" options={cinemaLibraryV3?.timesOfDay} value={config.time_of_day} onChange={handleConfigChange} language={language} />
+                <SelectGroup label="Color Grade" id="color_grade" options={cinemaLibraryV3?.colorGrades} value={config.color_grade} onChange={handleConfigChange} language={language} />
+              </div>
+            </div>
+          </CollapsibleSection>
+          
+          <CollapsibleSection title={t('neg_preset')} icon={MinusCircle} colorClass="text-red-400">
+            <div className="space-y-2">
+              <SelectGroup label={t('neg_preset')} id="negative_preset" options={cinemaLibraryV3?.negativePresets} value={config.negative_preset} onChange={handleConfigChange} highlightClass="text-red-400" language={language} />
+            </div>
+          </CollapsibleSection>
+        </div>
+      </aside>
+
+      {/* CENTER: SIMULATOR OUTPUT */}
+      <section className="flex-1 flex flex-col gap-2 min-w-0">
+        <div className="flex-1 bg-black rounded-lg border border-white/10 overflow-hidden relative shadow-2xl flex flex-col">
+          {/* Viewport Header */}
+          <div className="h-8 bg-surface-container-lowest/80 border-b border-white/5 flex items-center justify-between px-3 shrink-0">
+            <div className="flex items-center gap-3">
+              <span className={`font-label-caps px-1.5 py-[2px] rounded border text-[9px] uppercase tracking-widest ${
+                generationMode === 't2v' ? 'text-primary bg-primary/10 border-primary/20' :
+                generationMode === 'i2v' ? 'text-blue-400 bg-blue-500/10 border-blue-500/20' :
+                generationMode === 'v2v' ? 'text-rose-400 bg-rose-500/10 border-rose-500/20' :
+                'text-purple-400 bg-purple-500/10 border-purple-500/20'
+              }`}>
+                {generationMode.toUpperCase()} ENGINE
+              </span>
+              <span className="font-meta-code text-on-surface-variant text-[10px]">1920x1080 • 24FPS • RAW</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]"></span>
+              <span className="font-meta-code text-emerald-500 text-[10px] uppercase">IDLE_READY</span>
+            </div>
+          </div>
+          
+          {/* Actual Viewport */}
+          <div className="flex-1 relative bg-[#050505] flex items-center justify-center overflow-hidden group film-grain">
+            {isSimulating ? (
+              <div className="flex flex-col items-center text-primary z-20">
+                <Loader2 className="w-8 h-8 mb-2 animate-spin" />
+                <span className="font-label-caps text-[10px] tracking-widest">{t('simulating')}</span>
+              </div>
+            ) : simulationResult ? (
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-screen transition-transform duration-1000 group-hover:scale-105" 
+                style={{backgroundImage: `url(${simulationResult})`}}
+              ></div>
+            ) : (
+              <div className="flex flex-col items-center text-gray-700 z-20">
+                <Film className="w-12 h-12 mb-2 opacity-30" />
+                <span className="font-label-caps text-[10px] tracking-widest opacity-30">PREVIEW SIMULATION</span>
+              </div>
+            )}
             
+            {/* HUD Elements */}
+            <div className="absolute inset-0 pointer-events-none z-10">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 opacity-20 flex items-center justify-center">
+                <div className="absolute w-full h-[1px] bg-white"></div>
+                <div className="absolute h-full w-[1px] bg-white"></div>
+                <div className="absolute w-full h-full rounded-full border border-white/50"></div>
+              </div>
+              <div className="absolute top-[5%] left-[5%] right-[5%] bottom-[5%] border border-white/10"></div>
+            </div>
+          </div>
+          
+          {/* Transport Controls */}
+          <div className="h-16 bg-surface-container-low border-t border-white/5 shrink-0 flex items-center justify-between px-4">
             <button 
               onClick={handleSimulate}
               disabled={tokens === 0 || isSimulating}
-              className={`btn w-full mt-2 transition-all py-3 font-bold tracking-widest flex items-center justify-center gap-2 ${
+              className={`px-6 h-10 rounded-full font-label-caps text-[11px] tracking-widest flex items-center justify-center gap-2 uppercase transition-all shadow-[0_0_10px_rgba(16,185,129,0.2)] ${
                 tokens > 0 
-                  ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500 hover:text-white cursor-pointer' 
-                  : 'bg-gray-800/50 text-gray-600 border border-transparent'
+                  ? 'bg-emerald-500/20 border border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/30 cursor-pointer' 
+                  : 'bg-white/5 border border-white/10 text-on-surface-variant'
               }`}
             >
-              {isSimulating ? (language === 'es' ? 'PROCESANDO...' : 'PROCESSING...') : <><Play className="w-4 h-4 fill-current"/> {t('simulate_render').toUpperCase()}</>}
+              <Play className="w-4 h-4 fill-current"/> {isSimulating ? 'Processing...' : 'Render Frame'}
             </button>
+            <div className="flex-1 mx-6 h-1.5 bg-black rounded-full relative overflow-hidden border border-white/5 shadow-[inset_0_1px_3px_rgba(0,0,0,0.8)]">
+              <div className="absolute top-0 left-0 h-full w-1/3 bg-white/20"></div>
+              <div className="absolute top-0 left-1/3 w-[2px] h-full bg-white shadow-[0_0_8px_#fff] z-10"></div>
+            </div>
+            <div className="font-meta-code text-on-surface-variant text-[10px] flex gap-2">
+              <span className="text-white">00:00:00:00</span>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* RIGHT PANEL: GENERATED CODE/PROMPT */}
+      <aside className="w-[380px] flex-shrink-0 bg-surface-container-low/30 backdrop-blur-xl border border-white/5 rounded-lg flex flex-col overflow-hidden relative shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-emerald-500/30 via-emerald-500/10 to-transparent"></div>
+        <div className="p-2 border-b border-white/5 bg-surface-container-lowest/50 flex items-center justify-between">
+          <span className="font-label-caps text-on-surface tracking-widest text-[10px] uppercase">Compiler Output</span>
+          <Terminal className="w-[14px] h-[14px] text-emerald-500" />
+        </div>
+        <div className="flex-1 p-0 bg-[#0a0f0d] flex relative">
+          {/* Line Numbers */}
+          <div className="w-8 bg-[#050807] border-r border-emerald-900/30 flex flex-col pt-3 items-center font-meta-code text-[10px] text-emerald-900/50 select-none space-y-1 h-full overflow-hidden shrink-0">
+            {Array.from({length: 20}).map((_, i) => <span key={i}>{i+1}</span>)}
+          </div>
+          <div className="flex-1 p-3 overflow-y-auto custom-scrollbar">
+            <div className="font-meta-code text-[11px] leading-relaxed tracking-tight break-words text-emerald-400/90 selection:bg-emerald-500/30 selection:text-emerald-100">
+              <span className="text-emerald-600">-- COMPILE: INITIATED (ZEO-4 ENGINE)</span><br/>
+              <span className="text-emerald-600">-- TARGET: CINEMATIC_RENDER_V3_PHASE3</span><br/>
+              <span className="text-emerald-600">-- MODE: {generationMode.toUpperCase()}</span><br/>
+              <br/>
+              <span className="text-emerald-300 font-bold">define_payload</span> {'{\n'}
+              <div className="pl-4">
+                Tokens: <span className="text-white">{tokens}</span>,<br/>
+                <br/>
+                {tokens > 0 ? promptOutput : <span className="text-emerald-600 opacity-50">waiting for config...</span>}
+              </div>
+              <br/>
+              {'}'}<br/>
+              <br/>
+              <span className="text-emerald-600">-- GENERATING LATENT NOISE MAP...</span><br/>
+              <span className="text-emerald-500 animate-pulse">_</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Compiler Actions */}
+        <div className="h-12 border-t border-emerald-900/30 bg-[#050807] flex items-center px-3 gap-2 shrink-0">
+          <input className="flex-1 bg-transparent border-none font-meta-code text-[11px] text-emerald-500 focus:ring-0 p-0 outline-none" readOnly type="text" value={tokens > 0 ? "> payload_ready" : "> execute_render --fast"}/>
+          <button onClick={() => { setConfig({}); setPromptOutput(t('prompt_placeholder')); setTokens(0); }} className="px-2 py-1 bg-red-500/10 border border-red-500/30 rounded text-red-400 font-meta-code text-[10px] hover:bg-red-500/20 transition-colors cursor-pointer">CLR</button>
+          <button disabled={tokens === 0} onClick={handleCopy} className="px-3 py-1 bg-emerald-500/20 border border-emerald-500/50 rounded text-emerald-400 font-meta-code text-[10px] hover:bg-emerald-500/30 transition-colors cursor-pointer disabled:opacity-50">{isCopied ? 'COPIED' : 'COPY'}</button>
+        </div>
+      </aside>
     </div>
   );
 };

@@ -45,103 +45,121 @@ const App = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-black text-gray-200 font-sans overflow-hidden selection:bg-rose-500/30">
-      {/* SIDEBAR */}
-      <aside className="w-64 bg-[#09090b] border-r border-gray-800/60 flex flex-col flex-shrink-0 z-20">
-        <div className="p-5 border-b border-gray-800/60 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-rose-500 to-violet-600 flex items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.4)]">
-            <BrainCircuit className="text-white w-5 h-5" />
+    <div className="bg-background text-on-background h-screen overflow-hidden flex font-body-sm selection:bg-rose-500/30 selection:text-rose-200">
+      {/* SIDEBAR (Stitch Design) */}
+      <nav className="h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/10 bg-background/80 backdrop-blur-xl z-50 flex flex-col py-4">
+        <div className="px-4 mb-8 flex items-center gap-2">
+          <div className="w-8 h-8 rounded bg-gradient-to-br from-tertiary to-primary flex items-center justify-center shadow-lg shadow-primary/20">
+            <span className="material-symbols-outlined text-background" style={{fontVariationSettings: "'FILL' 1"}}>movie_filter</span>
           </div>
           <div>
-            <h1 className="font-bold text-white tracking-tight leading-tight">Studio Pro</h1>
-            <p className="text-[10px] text-gray-500 font-mono tracking-widest uppercase">{t('engine')} SUITE</p>
+            <h1 className="font-display-lg text-lg font-bold bg-gradient-to-r from-tertiary to-primary bg-clip-text text-transparent tracking-tight leading-tight">Studio Pro</h1>
+            <p className="font-meta-code text-[10px] text-on-surface-variant uppercase tracking-widest leading-none">{t('engine')} SUITE</p>
           </div>
         </div>
-        <div className="px-5 py-2 border-b border-gray-800/40">
-          <p className="text-[9px] text-gray-600 font-mono tracking-widest">
-            {language === 'es' ? 'DISEÑADO POR' : 
-             language === 'ru' ? 'ДИЗАЙН' : 
-             language === 'de' ? 'DESIGNT VON' : 
-             language === 'ja' ? 'デザイン：' : 
-             language === 'uk' ? 'ДИЗАЙН ВІД' : 
-             language === 'zh' ? '设计者' : 
-             'DESIGNED BY'} <span className="text-rose-500/80 font-bold">CHUS BZN</span>
+
+        <div className="px-4 mb-2">
+          <p className="text-[9px] text-on-surface-variant font-meta-code tracking-widest uppercase">
+            {language === 'es' ? 'DISEÑADO POR' : 'DESIGNED BY'} <span className="text-rose-500/80 font-bold">CHUS BZN</span>
           </p>
         </div>
 
-        <nav className="flex-grow p-4 space-y-1.5 overflow-y-auto">
-          <div className="text-[10px] font-bold text-gray-600 uppercase tracking-widest mb-3 ml-2 mt-2">{t('applications')}</div>
-          
+        <div className="flex-1 px-2 space-y-1 overflow-y-auto custom-scrollbar">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md transition-all duration-200 group ${
+              className={`w-full flex items-center gap-3 px-3 py-2 rounded text-left transition-all duration-200 cursor-pointer active:scale-95 ${
                 activeTab === item.id 
-                  ? 'bg-gray-800/50 text-white shadow-sm border border-gray-700/50' 
-                  : 'text-gray-400 hover:bg-gray-900 hover:text-gray-200 border border-transparent cursor-pointer'
+                  ? 'text-primary font-bold border-r-2 border-primary bg-primary/5' 
+                  : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'
               }`}
             >
-              <div className="flex items-center gap-3">
-                <item.icon className={`w-4 h-4 ${activeTab === item.id ? 'text-rose-500' : 'group-hover:text-rose-400'}`} />
-                <span className="text-sm font-medium">{t(item.labelKey)}</span>
-              </div>
+              <item.icon className={`w-5 h-5 ${activeTab === item.id ? 'text-primary' : 'text-on-surface-variant'}`} />
+              <span className="font-body-sm text-sm font-medium flex-1">{t(item.labelKey)}</span>
               {item.badge && (
-                <span className={`text-[9px] px-1.5 py-0.5 rounded font-bold uppercase ${
-                  item.id === 'cinema-generator' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                <span className={`text-[9px] px-1.5 py-0.5 rounded font-meta-code uppercase border ${
+                  item.id === 'cinema-generator' ? 'bg-rose-500/10 text-rose-400 border-rose-500/30' : 'bg-primary/10 text-primary border-primary/30'
                 }`}>
                   {item.badge}
                 </span>
               )}
             </button>
           ))}
-        </nav>
+        </div>
 
-        {/* Language Selector in Sidebar Footer */}
-        <div className="p-4 border-t border-gray-800/60 space-y-2">
-          <div className="flex items-center justify-between px-3 py-1 bg-gray-950/40 rounded border border-gray-850/60">
-            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-mono flex items-center gap-1.5">
-              <Globe className="w-3 h-3 text-rose-500/80" /> {language === 'es' ? '🇪🇸' : 
-                                                               language === 'en' ? '🇺🇸' : 
-                                                               language === 'de' ? '🇩🇪' : 
-                                                               language === 'ru' ? '🇷🇺' : 
-                                                               language === 'ja' ? '🇯🇵' : 
-                                                               language === 'uk' ? '🇺🇦' : 
-                                                               language === 'zh' ? '🇨🇳' : ''} {language.toUpperCase()}
+        <div className="px-4 py-4 space-y-4">
+          <div className="flex items-center justify-between px-3 py-1 bg-surface-container-low rounded border border-white/5">
+            <span className="text-[10px] text-on-surface-variant uppercase tracking-widest font-meta-code flex items-center gap-1.5">
+              <Globe className="w-3 h-3 text-primary" /> {language.toUpperCase()}
             </span>
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="bg-black border border-gray-800/60 rounded px-1.5 py-0.5 text-xs text-gray-300 hover:text-white hover:border-gray-700 focus:outline-none cursor-pointer"
+              className="bg-transparent border-none text-[10px] text-on-surface hover:text-white focus:outline-none cursor-pointer appearance-none font-meta-code text-right"
             >
-              <option value="es">🇪🇸 Español</option>
-              <option value="en">🇺🇸 English</option>
-              <option value="de">🇩🇪 Deutsch</option>
-              <option value="ru">🇷🇺 Русский</option>
-              <option value="ja">🇯🇵 日本語</option>
-              <option value="uk">🇺🇦 Українська</option>
-              <option value="zh">🇨🇳 中文</option>
+              <option value="es">ESPAÑOL</option>
+              <option value="en">ENGLISH</option>
+              <option value="de">DEUTSCH</option>
+              <option value="ru">РУССКИЙ</option>
+              <option value="ja">日本語</option>
+              <option value="uk">УКРАЇНСЬКА</option>
+              <option value="zh">中文</option>
             </select>
           </div>
 
-          <button 
-            onClick={() => setShowSettingsModal(true)}
-            className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-900 transition-colors text-sm font-medium cursor-pointer"
-          >
-            <Settings className="w-4 h-4" /> {t('settings')}
-          </button>
-          <button 
-            onClick={() => setShowLogoutModal(true)}
-            className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-red-400 hover:text-red-300 hover:bg-red-950/30 transition-colors text-sm font-medium cursor-pointer"
-          >
-            <LogOut className="w-4 h-4" /> {t('logout')}
+          <div className="border-t border-white/5 pt-4 space-y-1">
+            <button 
+              onClick={() => setShowSettingsModal(true)}
+              className="w-full flex items-center gap-3 px-2 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:scale-95"
+            >
+              <Settings className="w-4 h-4" />
+              <span className="font-meta-code text-[11px] uppercase tracking-wider">{t('settings')}</span>
+            </button>
+            <button 
+              onClick={() => setShowLogoutModal(true)}
+              className="w-full flex items-center gap-3 px-2 py-1.5 text-rose-500/70 hover:text-rose-500 transition-colors cursor-pointer active:scale-95"
+            >
+              <LogOut className="w-4 h-4" />
+              <span className="font-meta-code text-[11px] uppercase tracking-wider">{t('logout')}</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* TOP APP BAR (Stitch Design) */}
+      <header className="fixed top-0 right-0 left-64 h-16 border-b border-white/10 bg-surface-container-low/50 backdrop-blur-md z-40 flex items-center justify-between px-8">
+        <div className="flex items-center gap-8 h-full">
+          <span className="font-display-lg font-black tracking-tighter text-on-surface text-xl">
+            {activeTab === 'dashboard' ? 'Studio Pro Suite' : 
+             activeTab === 'cinema-generator' ? 'Cinema Generator Pro' : 
+             activeTab === 'script-writer' ? 'Script Writer Pro' : 'ZEO 4 Audio'}
+          </span>
+          <nav className="hidden md:flex items-center gap-6 h-full">
+            <span className="font-meta-code text-[10px] text-primary border-b-2 border-primary pb-1 mt-[2px] uppercase h-full flex items-center tracking-widest">Active Module</span>
+          </nav>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 mr-4 border-r border-white/10 pr-4">
+            <button className="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all">
+              <span className="material-symbols-outlined text-lg">memory</span>
+            </button>
+            <button className="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all">
+              <span className="material-symbols-outlined text-lg">lan</span>
+            </button>
+            <button className="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-white/5 transition-all relative">
+              <span className="material-symbols-outlined text-lg">notifications</span>
+              <span className="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full shadow-[0_0_5px_rgba(225,29,72,0.8)]"></span>
+            </button>
+          </div>
+          <button className="px-4 py-1.5 bg-surface-container border border-outline-variant/30 rounded font-label-caps text-[11px] text-secondary hover:border-secondary/50 transition-colors uppercase tracking-widest">
+            System Status
           </button>
         </div>
-      </aside>
+      </header>
 
       {/* MAIN CONTENT AREA */}
-      <main className="flex-grow bg-[#09090b] flex flex-col overflow-hidden relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-rose-900/10 via-[#09090b] to-[#09090b] pointer-events-none"></div>
+      <main className="ml-64 mt-16 flex-grow flex flex-col overflow-hidden relative bg-[#0a0a0c]">
         
         {activeTab === 'dashboard' && (
           <div className="p-8 flex-grow overflow-y-auto z-10 custom-scrollbar animate-fade-in">
@@ -244,17 +262,13 @@ const App = () => {
           <Zeo4 language={language} />
         )}
         
-        {/* SYSTEM STATUS BAR */}
-        <div className="h-8 border-t border-gray-800/60 bg-[#09090b]/80 backdrop-blur-md flex items-center justify-between px-4 text-[10px] font-mono text-gray-500 z-50 flex-shrink-0">
+        {/* SYSTEM STATUS BAR (Stitch Design) */}
+        <footer className="fixed bottom-0 right-0 left-64 h-8 border-t border-white/5 bg-black/40 backdrop-blur-sm z-40 flex items-center justify-between px-4 w-[calc(100%-16rem)]">
+          <span className="font-label-caps text-[10px] text-on-surface-variant tracking-widest">© 2026 ZEO AI ENGINE. VRAM: {sysStatus.vram}GB / 24GB | Nodes: {sysStatus.nodes} Active | Latency: {sysStatus.latency}ms</span>
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5"><Server className="w-3 h-3 text-emerald-500" /> {t('active_nodes').toUpperCase()}: {sysStatus.nodes}</span>
-            <span className="flex items-center gap-1.5"><Zap className="w-3 h-3 text-yellow-500" /> {t('latency').toUpperCase()}: {sysStatus.latency}ms</span>
+            <span className="font-meta-code text-[10px] text-emerald-400 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)] tracking-widest">SYNC: STABLE</span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5"><HardDrive className="w-3 h-3 text-blue-500" /> {t('vram').toUpperCase()}: {sysStatus.vram} GB / 24 GB</span>
-            <span className="flex items-center gap-1.5"><Activity className="w-3 h-3 text-rose-500" /> {t('engine').toUpperCase()}: {t('active').toUpperCase()}</span>
-          </div>
-        </div>
+        </footer>
       </main>
 
       {/* SETTINGS MODAL */}

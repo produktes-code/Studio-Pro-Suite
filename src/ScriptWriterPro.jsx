@@ -80,20 +80,22 @@ const ScriptWriterPro = ({ language = 'es' }) => {
   };
 
   return (
-    <div className="flex-grow flex flex-col overflow-y-auto custom-scrollbar p-8 animate-fade-in relative z-10">
-      <header className="text-center mb-8">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white uppercase tracking-wider">
-          Script Writer <span className="text-rose-500">NARRATIVE ENGINE</span>
-        </h1>
-        <p className="mt-2 text-sm max-w-3xl mx-auto text-gray-400 font-mono">
-          {language === 'es' ? '[ AGENTIC WORKFLOW ACTIVE ] Construcción estructural, memoria de personajes y desglose automatizado de planos.' : 
-           language === 'ru' ? '[ АГЕНТСКИЙ РАБОЧИЙ ПРОЦЕСС АКТИВЕН ] Структурное построение, память персонажей и автоматическая раскадровка.' : 
-           language === 'de' ? '[ AGENTIC WORKFLOW AKTIV ] Struktureller Aufbau, Charaktergedächtnis und automatische Einstellungsaufteilung.' : 
-           language === 'ja' ? '[ エージェントワークフロー有効 ] 構成・プロット構造構築、キャラクターメモリー、自動ショット分解。' : 
-           language === 'uk' ? '[ АГЕНТСЬКИЙ РОБОЧИЙ ПРОЦЕС АКТИВНИЙ ] Структурна побудова, пам\'ять персонажів та автоматична розкадровка.' : 
-           language === 'zh' ? '[ 智能体工作流已激活 ] 结构化构建、角色记忆与自动化镜头拆解。' : 
-           '[ AGENTIC WORKFLOW ACTIVE ] Structural building, character memory, and automated shot breakdown.'}
-        </p>
+    <div className="flex-grow flex flex-col overflow-y-auto custom-scrollbar p-6 animate-fade-in relative z-10 bg-[#0a0a0c]">
+      <header className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between border-b border-white/5 pb-4">
+        <div>
+          <h1 className="text-xl font-bold text-on-surface uppercase tracking-widest flex items-center gap-2">
+            <span className="text-primary">Script Writer</span> <span className="font-light opacity-50">Narrative Engine</span>
+          </h1>
+          <p className="mt-1 text-[10px] text-on-surface-variant font-meta-code uppercase tracking-widest">
+            {language === 'es' ? '[ AGENTIC WORKFLOW ] Construcción estructural y desglose automatizado' : 
+             '[ AGENTIC WORKFLOW ] Structural building and automated breakdown'}
+          </p>
+        </div>
+        <div className="mt-4 md:mt-0 flex items-center gap-3">
+          <div className="px-3 py-1 bg-primary/10 border border-primary/20 rounded text-[9px] text-primary uppercase tracking-widest font-bold">
+            ZEO-4 LINK: STABLE
+          </div>
+        </div>
       </header>
 
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-8">
@@ -102,10 +104,10 @@ const ScriptWriterPro = ({ language = 'es' }) => {
         <div className="space-y-6">
           
           {/* IDEA Y ESTRUCTURA */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl">
-            <div className="flex items-center gap-3 mb-6">
-              <Lightbulb className="w-6 h-6 text-rose-500" />
-              <h2 className="text-lg font-bold uppercase text-white tracking-widest">
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+              <Lightbulb className="w-4 h-4 text-violet-400" />
+              <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest">
                 {language === 'es' ? 'Base Narrativa' : 
                  language === 'ru' ? 'Сюжетная основа' : 
                  language === 'de' ? 'Narrative Basis' : 
@@ -154,11 +156,11 @@ const ScriptWriterPro = ({ language = 'es' }) => {
           </div>
 
           {/* AI CAST & CREW */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Clapperboard className="w-6 h-6 text-rose-500" />
-              <h2 className="text-lg font-bold uppercase text-white tracking-widest">AI Cast & Crew</h2>
-              <span className="ml-auto text-[10px] bg-rose-500/10 text-rose-400 px-2 py-1 rounded font-mono uppercase">Style Transfer</span>
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+              <Clapperboard className="w-4 h-4 text-blue-400" />
+              <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest">AI Cast & Crew</h2>
+              <span className="ml-auto text-[9px] border border-blue-500/30 text-blue-400 px-1.5 py-0.5 rounded font-meta-code uppercase">Style Transfer</span>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
@@ -186,11 +188,11 @@ const ScriptWriterPro = ({ language = 'es' }) => {
           </div>
 
           {/* CONSISTENT CHARACTERS */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Users className="w-6 h-6 text-rose-500" />
-              <h2 className="text-lg font-bold uppercase text-white tracking-widest">{t('ai_cast').split(' (')[0]}</h2>
-              <span className="ml-auto text-[10px] bg-rose-500/10 text-rose-400 px-2 py-1 rounded font-mono uppercase">
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+              <Users className="w-4 h-4 text-rose-400" />
+              <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest">{t('ai_cast').split(' (')[0]}</h2>
+              <span className="ml-auto text-[9px] border border-rose-500/30 text-rose-400 px-1.5 py-0.5 rounded font-meta-code uppercase">
                 {language === 'es' ? 'Memoria Persistente' : 
                  language === 'ru' ? 'Постоянная память' : 
                  language === 'de' ? 'Persistentes Gedächtnis' : 
@@ -253,11 +255,10 @@ const ScriptWriterPro = ({ language = 'es' }) => {
           <button 
             onClick={handleGenerateScript}
             disabled={!premise || isGenerating}
-            title={!premise ? (language === 'es' ? 'Escribe una premisa para continuar' : language === 'ru' ? 'Напишите предпосылку для продолжения' : language === 'de' ? 'Schreibe eine Prämisse, um fortzufahren' : language === 'ja' ? '続行するには前提を記述してください' : language === 'uk' ? 'Напишіть передумову для продовження' : language === 'zh' ? '写一个前提以继续' : 'Write a premise to continue') : ''}
-            className={`btn w-full py-5 text-sm font-black tracking-widest shadow-[0_0_20px_rgba(244,63,94,0.3)] transition-all duration-300 transform hover:scale-[1.02] ${
+            className={`w-full py-3 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 border ${
               !premise 
-                ? 'bg-gray-800 text-gray-500 border border-gray-700 cursor-not-allowed'
-                : 'bg-gradient-to-r from-rose-600 to-orange-600 hover:from-rose-500 hover:to-orange-500 text-white cursor-pointer'
+                ? 'bg-white/5 text-on-surface-variant border-white/10 cursor-not-allowed'
+                : 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 cursor-pointer shadow-[0_0_15px_rgba(16,185,129,0.15)]'
             }`}
           >
             {isGenerating ? (
@@ -274,12 +275,12 @@ const ScriptWriterPro = ({ language = 'es' }) => {
         </div>
 
         {/* COLUMNA DERECHA: SCENE BREAKDOWN (OUTPUT) */}
-        <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl flex flex-col">
-          <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-800">
-            <h2 className="text-lg font-bold uppercase text-white tracking-widest">{t('tech_script')}</h2>
-            <div className="flex items-center gap-2 text-xs font-mono text-gray-500">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              ZEO 4 LINK ACTIVE
+        <div className="bg-surface-container-low/30 backdrop-blur-xl p-0 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden">
+          <div className="flex items-center justify-between p-4 bg-[#050507] border-b border-white/5 shrink-0">
+            <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest flex items-center gap-2"><AlignLeft className="w-4 h-4 text-emerald-500"/> {t('tech_script')}</h2>
+            <div className="flex items-center gap-2 text-[9px] font-meta-code text-emerald-500/80 uppercase tracking-widest">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_5px_#10b981]"></span>
+              Sequence Builder
             </div>
           </div>
 

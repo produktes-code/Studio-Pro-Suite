@@ -204,5 +204,15 @@ export const cinemaLibraryV3 = {
   lensFilters: [ { value: "Pro-Mist 1/8", text: "Pro-Mist 1/8 (Muy Sutil)" }, { value: "Pro-Mist 1/4", text: "Pro-Mist 1/4 (Suave)" }, { value: "Black Pro-Mist 1/2", text: "Black Pro-Mist 1/2 (Halos Claros)" }, { value: "Star Filter 4-point", text: "Filtro Estrella (4 Puntas)" }, { value: "Star Filter 8-point", text: "Filtro Estrella (8 Puntas)" }, { value: "ND Grad", text: "ND Graduado (Cielos Oscuros)" }, { value: "Polarizer", text: "Polarizador (Quitar Reflejos)" }, { value: "Kaleidoscope", text: "Caleidoscopio" }, { value: "Infrared Filter", text: "Filtro IR" }, { value: "Blue Streak Filter", text: "Streak Azul (Falso Anamórfico)" } ],
   compositionRules: [ { value: "Rule of Thirds", text: "Regla de los Tercios" }, { value: "Golden Ratio", text: "Proporción Áurea" }, { value: "Center Framed", text: "Encuadre Centrado (Simetría)" }, { value: "Leading Lines", text: "Líneas Guía" }, { value: "Negative Space", text: "Espacio Negativo (Vacío)" }, { value: "Framing within framing", text: "Marco dentro de Marco" } ],
 
+  // --- NEW PHASE 3 EXPANSIONS ---
+  videoToVideoStyles: [
+    { group: "Animation & Anime (Domo AI Style)", options: [ { value: "v2v_anime_90s", text: "Anime 90s (Cel Shading)" }, { value: "v2v_anime_modern", text: "Anime Moderno (Makoto Shinkai)" }, { value: "v2v_ghibli", text: "Estilo Ghibli (Acuarela)" }, { value: "v2v_spiderverse", text: "Spider-Verse (Halftones/2.5D)" } ]},
+    { group: "3D & Artistic", options: [ { value: "v2v_pixar", text: "Render 3D Pixar" }, { value: "v2v_claymation", text: "Claymation (Plastilina)" }, { value: "v2v_watercolor", text: "Pintura Acuarela Animada" }, { value: "v2v_oil_painting", text: "Pintura al Óleo (Van Gogh)" }, { value: "v2v_cyberpunk", text: "Cyberpunk Transfer" } ]}
+  ],
+
+  marketingModes: [
+    { group: "Face & Avatar (Akool Style)", options: [ { value: "face_swap_realistic", text: "Face Swap (Hiperrealista 4K)" }, { value: "face_swap_cinematic", text: "Face Swap (Cinematográfico)" }, { value: "avatar_lipsync", text: "Avatar Lip-Sync (Preciso)" }, { value: "avatar_lipsync_expressive", text: "Avatar Lip-Sync (Expresivo)" } ]},
+    { group: "Translation & Dubbing", options: [ { value: "dub_en", text: "Doblaje Automático a Inglés" }, { value: "dub_es", text: "Doblaje Automático a Español" }, { value: "dub_jp", text: "Doblaje Automático a Japonés" } ]}
+  ],
   negativePresets: [ { value: "blurry, low resolution, bad quality, watermark, text, logo, distortion, ugly, jpeg artifacts", text: "Calidad Estándar" }, { value: "deformed, disfigured, extra limbs, bad anatomy, mutated, ugly face, bad hands", text: "Anatomía Humana" }, { value: "3d render, cartoon, drawing, painting, illustration, anime, sketch", text: "Solo Realismo (No 3D/Dibujo)" }, { value: "bright, sunny, happy, colorful, saturated", text: "Anti-Felicidad (Dark Mood)" }, { value: "dark, moody, shadow, night, dim", text: "Anti-Oscuridad (Bright Mood)" } ]
 };

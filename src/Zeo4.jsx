@@ -98,14 +98,22 @@ const Zeo4 = ({ language = 'es' }) => {
   ];
 
   return (
-    <div className="flex-grow flex flex-col overflow-y-auto custom-scrollbar p-8 animate-fade-in relative z-10">
-      <header className="text-center mb-8">
-        <h1 className="text-3xl md:text-5xl font-black text-white uppercase tracking-wider">
-          {t('zeo_title').split(':')[0]} <span className="text-violet-500">{t('zeo_title').split(':')[1] || 'CINEMA STUDIO'}</span>
-        </h1>
-        <p className="mt-2 text-sm max-w-3xl mx-auto text-gray-400 font-mono">
-          [ ORCHESTRATION ENGINE ACTIVE ] {t('zeo_subtitle')}
-        </p>
+    <div className="flex-grow flex flex-col overflow-y-auto custom-scrollbar p-6 animate-fade-in relative z-10 bg-[#0a0a0c]">
+      <header className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between border-b border-white/5 pb-4">
+        <div>
+          <h1 className="text-xl font-bold text-on-surface uppercase tracking-widest flex items-center gap-2">
+            <span className="text-violet-500">{t('zeo_title').split(':')[0]}</span> <span className="font-light opacity-50">{t('zeo_title').split(':')[1] || 'CINEMA STUDIO'}</span>
+          </h1>
+          <p className="mt-1 text-[10px] text-on-surface-variant font-meta-code uppercase tracking-widest">
+            [ ORCHESTRATION ENGINE ACTIVE ] {t('zeo_subtitle')}
+          </p>
+        </div>
+        <div className="mt-4 md:mt-0 flex items-center gap-3">
+          <div className="px-3 py-1 bg-violet-500/10 border border-violet-500/20 rounded text-[9px] text-violet-400 uppercase tracking-widest font-bold flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-500 shadow-[0_0_5px_#8b5cf6] animate-pulse"></span>
+            NODE LINK ACTIVE
+          </div>
+        </div>
       </header>
 
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-12 gap-8">
@@ -114,10 +122,10 @@ const Zeo4 = ({ language = 'es' }) => {
         <div className="lg:col-span-7 space-y-6">
           
           {/* PROMPT PRINCIPAL */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <Film className="w-6 h-6 text-violet-500" />
-              <h2 className="text-lg font-bold uppercase text-white tracking-widest">{t('main_prompt')}</h2>
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+              <Film className="w-4 h-4 text-violet-400" />
+              <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest">{t('main_prompt')}</h2>
             </div>
             <textarea 
               rows="4" 
@@ -142,11 +150,11 @@ const Zeo4 = ({ language = 'es' }) => {
           </div>
 
           {/* KEYFRAME CONDITIONING */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <ImageIcon className="w-6 h-6 text-blue-500" />
-              <h2 className="text-lg font-bold uppercase text-white tracking-widest">{t('keyframes')}</h2>
-              <span className="ml-auto text-xs bg-blue-500/10 text-blue-400 px-2 py-1 rounded font-mono">Image-to-Video</span>
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+              <ImageIcon className="w-4 h-4 text-blue-400" />
+              <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest">{t('keyframes')}</h2>
+              <span className="ml-auto text-[9px] border border-blue-500/30 text-blue-400 px-1.5 py-0.5 rounded font-meta-code uppercase">Image-to-Video</span>
             </div>
             
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
@@ -195,17 +203,17 @@ const Zeo4 = ({ language = 'es' }) => {
         <div className="lg:col-span-5 space-y-6">
           
           {/* CAMERA DIRECTOR CONTROLS */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl relative overflow-hidden">
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
               <Camera className="w-32 h-32" />
             </div>
             
-            <div className="flex items-center justify-between mb-6 relative z-10">
-              <div className="flex items-center gap-3">
-                <Camera className="w-6 h-6 text-emerald-500" />
-                <h2 className="text-lg font-bold uppercase text-white tracking-widest">{t('coords_control').split(' de ').pop() || 'Camera Controls'}</h2>
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/5 relative z-10">
+              <div className="flex items-center gap-2">
+                <Camera className="w-4 h-4 text-emerald-400" />
+                <h2 className="text-[10px] font-bold uppercase text-on-surface tracking-widest">{t('coords_control').split(' de ').pop() || 'Camera Controls'}</h2>
               </div>
-              <label htmlFor="static-camera-toggle" className="flex items-center gap-2 text-xs font-mono bg-gray-800 px-3 py-1.5 rounded-full cursor-pointer hover:bg-gray-700 transition">
+              <label htmlFor="static-camera-toggle" className="flex items-center gap-2 text-[10px] font-meta-code uppercase tracking-widest bg-black/40 border border-white/5 px-2 py-1 rounded cursor-pointer hover:bg-white/5 transition">
                 <input id="static-camera-toggle" type="checkbox" checked={isStaticCamera} onChange={(e) => setIsStaticCamera(e.target.checked)} className="accent-emerald-500" />
                 {t('static_camera')}
               </label>
@@ -236,8 +244,10 @@ const Zeo4 = ({ language = 'es' }) => {
           </div>
 
           {/* RENDER SETTINGS */}
-          <div className="bg-[#141417] p-6 rounded-xl border border-gray-800/60 shadow-xl">
-            <h2 className="text-sm font-bold uppercase text-gray-400 mb-4 tracking-widest border-b border-gray-800 pb-2">{t('render_params')}</h2>
+          <div className="bg-surface-container-low/30 backdrop-blur-xl p-5 rounded-lg border border-white/5 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+            <h2 className="text-[10px] font-bold uppercase text-on-surface mb-4 tracking-widest border-b border-white/5 pb-3 flex items-center gap-2">
+              <Lock className="w-4 h-4 text-amber-400"/> {t('render_params')}
+            </h2>
             
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
@@ -293,22 +303,26 @@ const Zeo4 = ({ language = 'es' }) => {
             <button 
               onClick={handleGenerateVideo}
               disabled={(!prompt && !startFrame) || isGenerating}
-              className="btn btn-primary flex-grow py-5 text-sm bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-600 hover:from-violet-500 hover:to-rose-500 cursor-pointer disabled:opacity-50 font-black tracking-widest shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 transform hover:scale-[1.01]"
+              className={`w-full py-3 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 border ${
+                (!prompt && !startFrame) 
+                  ? 'bg-white/5 text-on-surface-variant border-white/10 cursor-not-allowed'
+                  : 'bg-violet-500/10 text-violet-400 border-violet-500/30 hover:bg-violet-500/20 cursor-pointer shadow-[0_0_15px_rgba(139,92,246,0.15)]'
+              }`}
             >
               {isGenerating ? (
                 <span className="flex items-center justify-center gap-2">
-                  <RefreshCcw className="w-5 h-5 animate-spin" /> {t('generating_payload').toUpperCase()}
+                  <RefreshCcw className="w-4 h-4 animate-spin" /> {t('generating_payload').toUpperCase()}
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2">
-                  <Play className="w-5 h-5" /> {t('generate_payload').toUpperCase()}
+                  <Play className="w-4 h-4" /> {t('generate_payload').toUpperCase()}
                 </span>
               )}
             </button>
             {outputCommand && (
               <button
                 onClick={() => { setOutputCommand(null); setPrompt(''); setNegativePrompt(''); setSeed(''); }}
-                className="btn btn-secondary px-4 py-3 cursor-pointer hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/30 flex-shrink-0"
+                className="px-4 py-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg cursor-pointer hover:bg-red-500/20 hover:border-red-500/40 transition-colors flex-shrink-0"
                 title={language === 'es' ? 'Nueva Sesión — Limpiar output' : language === 'ru' ? 'Новый сеанс — Очистить вывод' : language === 'de' ? 'Neue Sitzung — Ausgabe löschen' : language === 'ja' ? '新規セッション — 出力をクリア' : language === 'uk' ? 'Новий сеанс — Очистити вивід' : language === 'zh' ? '新会话 — 清除输出' : 'New Session — Clear output'}
               >
                 <RotateCcw className="w-4 h-4" />
