@@ -5,56 +5,61 @@
 <h1 align="center">Studio Pro Suite V1.0.0</h1>
 
 <p align="center">
-  <b>The Ultimate AI Cinematic Creation and Parametric Camera Automation Ecosystem</b>
+  <b>The Ultimate AI Cinematic Creation & Parametric Camera Automation Ecosystem</b><br/>
+  <i>El Ecosistema Definitivo de Creación Cinematográfica IA y Automatización de Cámara Paramétrica</i>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge" alt="Version 1.0.0" />
-  <img src="https://img.shields.io/badge/Languages-7%20Supported-purple?style=for-the-badge" alt="7 Languages" />
-  <img src="https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-green?style=for-the-badge" alt="macOS & Windows" />
   <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status" />
+</p>
+
+<p align="center">
+  <b>🌐 Multilingual & Multimodal Support / Soporte Multiidioma:</b><br/>
+  🇪🇸 Spanish | 🇬🇧 English | 🇩🇪 German | 🇷🇺 Russian | 🇯🇵 Japanese | 🇺🇦 Ukrainian | 🇨🇳 Chinese
 </p>
 
 ---
 
-## 🎯 Overview
+## 🎯 Overview / Resumen
 
+### English
 **Studio Pro Suite** is a state-of-the-art parametric prompt generation engine and narrative pre-production layout manager engineered for professional Directors of Photography, cinema directors, and generative AI prompt engineers. It functions as a precise hardware-to-aesthetic compiler that translates abstract cinematic intent into mathematically and physically accurate payloads for modern video generation engines (such as Sora, Veo, Runway, and Kling AI).
+
+### Español
+**Studio Pro Suite** es un motor de generación de prompts paramétricos y gestor de preproducción narrativa diseñado para directores de fotografía, cineastas y diseñadores de prompts de IA. Actúa como un compilador estético que traduce conceptos de dirección en instrucciones físicas y de cámara precisas para motores de IA de vídeo (como Sora, Veo, Runway y Kling AI).
 
 > [!NOTE]
 > Engineered in close collaboration between **Antigravity AI** and **Jesús Ferrer (CHUS BZN)** to establish professional standards for AI cinematography.
 
 ---
 
-## 🏗️ Technical Architecture
+## 🏗️ Technical Architecture / Arquitectura Técnica
 
 *   **Frontend Interface:** Built with **React 19** and compiled via **Vite 8** using a high-performance, dark-theme *Glassmorphism* UI system.
-*   **Desktop Shell:** Containerized in **Electron** providing native hardware access, custom menu systems, and cross-platform native execution.
-*   **System Styling:** Designed using vanilla CSS and custom styling tokens, ensuring zero layout overlaps and absolute responsiveness.
+*   **Desktop Shell:** Containerized in **Electron** providing native hardware access and cross-platform native execution.
+*   **Multilingual Engine:** Fully localized configuration across 7 languages using localized state dictionaries.
 
 ---
 
-## ⚙️ Core Modules & Features
+## ⚙️ Core Modules & Features / Módulos y Características
 
 ### 🎬 Cinema Generator Pro
-An advanced 8-stage visual parameters compiler:
-*   **Camera Bodies:** Choose from over 80 industry-standard camera configurations (e.g., IMAX 70mm, Arri Alexa LF, RED V-Raptor, CCTV, Thermal).
-*   **Director Styles:** Incorporates preset stylistic profiles of legendary directors (e.g., Roger Deakins, Greig Fraser, Lubezki).
+*   **Camera Bodies:** Choose from over 80 configurations (IMAX 70mm, Arri Alexa LF, RED V-Raptor, CCTV, Thermal).
+*   **Director Styles:** Incorporates preset stylistic profiles of legendary directors (Roger Deakins, Greig Fraser, Emmanuel Lubezki).
 *   **Lens Optics:** Adjust T-stop aperture (T1.2 to T22) and select Cooke Anamorphic or Zeiss Spherical configurations.
 
 ### ✍️ Script Writer Pro
-A narrative-focused screenplay and shot-list generator:
-*   **AI Cast & Crew:** Simulates the collaborative styles of specific directors and cinematographers to modulate the prompt syntax.
-*   **Character Memory:** Restricts character rendering prompts to maintain consistent facial features and clothing styles across sequential generations.
+*   **AI Cast & Crew:** Simulates the collaborative styles of specific directors to modulate prompt syntax.
+*   **Character Memory:** Restricts character prompts to maintain visual consistency across scenes.
 
 ### 🔬 ZEO-4 Cloud Engine
-A rendering latency simulator and payload editor:
 *   **Text-to-Audio Synthesizer:** Processes raw script descriptions into synthesized voice payloads.
 *   **Hardware Latency Monitor:** Provides live rendering latency and queue estimations.
 
 ---
 
-## 🚀 Desktop Installation
+## 🚀 Desktop Installation / Instalación en Escritorio
 
 ### 🍎 macOS
 1. Download `Studio Pro Suite-1.0.0.dmg` from the **Releases** tab.
@@ -66,7 +71,7 @@ A rendering latency simulator and payload editor:
 
 ---
 
-## 📖 Technical User Manual
+## 📖 Technical User Manual / Manual Técnico
 
 📄 **[Download the Multilingual Technical Manual (PDF)](./manual.pdf)**
 
@@ -75,3 +80,4 @@ A comprehensive user guide is included directly in this repository as [manual.pd
 ---
 
 *© 2026 Studio Pro Suite — Jesús Ferrer (CHUS BZN) — Proprietary License. All rights reserved.*
+
