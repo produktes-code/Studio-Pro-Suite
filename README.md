@@ -31,6 +31,11 @@
 
 ---
 
+## 📸 Interface Preview (Screenshot)
+![Desktop Layout](docs/screenshots/screenshot-Desktop.png)
+
+---
+
 ## 🏗️ Technical Architecture / Arquitectura Técnica
 
 *   **Frontend Interface:** Built with **React 19** and compiled via **Vite 8** using a high-performance, dark-theme *Glassmorphism* UI system.
