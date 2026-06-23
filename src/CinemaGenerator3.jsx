@@ -214,23 +214,48 @@ const CinemaGenerator3 = ({ language = 'es' }) => {
     { url: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=800", tags: ["winter","cold","snow","ice","blue"] },
   ];
 
-  const handleSimulate = () => {
+  const handleSimulate = async () => {
     if (!config.story_concept && generationMode === 't2v') return;
     setIsSimulating(true);
     setSimulationResult(null);
     
-    const concept = (config.story_concept || '').toLowerCase();
-    const scored = CINEMATIC_FRAMES.map(frame => ({
-      ...frame,
-      score: frame.tags.filter(t => concept.includes(t)).length
-    }));
-    const best = scored.sort((a, b) => b.score - a.score);
-    const selected = best[0].score > 0 ? best[0] : CINEMATIC_FRAMES[Math.floor(Math.random() * CINEMATIC_FRAMES.length)];
+    let finalPrompt = (promptOutput || '').split('\n\n──────────────')[0];
+    if (!finalPrompt || finalPrompt === t('prompt_placeholder')) {
+      finalPrompt = config.story_concept || 'A beautiful cinematic scenery';
+    }
     
-    setTimeout(() => {
-      setIsSimulating(false);
+    let negParts = [];
+    if (config.negative_preset) negParts.push(config.negative_preset);
+    if (config.custom_negative) negParts.push(config.custom_negative.trim());
+    const finalNegative = negParts.join(', ');
+
+    try {
+      const encodedPrompt = encodeURIComponent(finalPrompt);
+      const seed = Math.floor(Math.random() * 1000000); 
+      const width = 1280;
+      const height = 720;
+      const model = 'flux';
+      
+      let imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&seed=${seed}&model=${model}&nologo=true`;
+      if (finalNegative) {
+        imageUrl += `&negative=${encodeURIComponent(finalNegative)}`;
+      }
+      
+      await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = () => reject(new Error("API is saturated"));
+        img.src = imageUrl;
+      });
+      
+      setSimulationResult(imageUrl);
+    } catch (err) {
+      console.error(err);
+      const selected = CINEMATIC_FRAMES[Math.floor(Math.random() * CINEMATIC_FRAMES.length)];
       setSimulationResult(selected.url);
-    }, 2500);
+    } finally {
+      setIsSimulating(false);
+    }
   };
 
   const handleEnhanceProse = () => {

@@ -29,6 +29,7 @@ const Zeo4 = ({ language = 'es' }) => {
 
   const [isGenerating, setIsGenerating] = useState(false);
   const [outputCommand, setOutputCommand] = useState(null);
+  const [generatedImageUrl, setGeneratedImageUrl] = useState(null);
 
   const t = (key) => {
     return translationsUI[language]?.[key] || translationsUI['en']?.[key] || key;
@@ -46,16 +47,44 @@ const Zeo4 = ({ language = 'es' }) => {
     setCamera(prev => ({ ...prev, [axis]: parseFloat(value) }));
   };
 
-  const handleGenerateVideo = () => {
+  const handleGenerateVideo = async () => {
     if (!prompt && !startFrame) return;
     setIsGenerating(true);
     setOutputCommand(null);
-    setTimeout(() => {
-      setIsGenerating(false);
+    setGeneratedImageUrl(null);
+
+    const cleanPrompt = prompt ? prompt.trim() : 'A beautiful cinematic keyframe scene';
+    const cleanNeg = negativePrompt ? negativePrompt.trim() : '';
+
+    try {
+      const encodedPrompt = encodeURIComponent(cleanPrompt);
+      const randomSeed = seed ? parseInt(seed) : Math.floor(Math.random() * 1000000); 
+      const width = aspectRatio === '9:16' ? 720 : 1280;
+      const height = aspectRatio === '9:16' ? 1280 : 720;
+      const model = 'flux';
       
+      let imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&seed=${randomSeed}&model=${model}&nologo=true`;
+      if (cleanNeg) {
+        imageUrl += `&negative=${encodeURIComponent(cleanNeg)}`;
+      }
+      
+      await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = () => reject(new Error("API is saturated"));
+        img.src = imageUrl;
+      });
+      
+      setGeneratedImageUrl(imageUrl);
+    } catch (err) {
+      console.error(err);
+      setGeneratedImageUrl("https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?auto=format&fit=crop&q=80&w=1200");
+    } finally {
+      setIsGenerating(false);
+
       // Compile Mathematics
-      const cleanPrompt = prompt ? `"${prompt.trim()}"` : '"[NO PROMPT - KEYFRAME ONLY]"';
-      const cleanNeg = negativePrompt ? ` --neg "${negativePrompt.trim()}"` : '';
+      const displayPrompt = prompt ? `"${prompt.trim()}"` : '"[NO PROMPT - KEYFRAME ONLY]"';
+      const displayNeg = negativePrompt ? ` --neg "${negativePrompt.trim()}"` : '';
       const seedParam = seed ? ` --seed ${seed}` : '';
       
       let camParams;
@@ -65,7 +94,7 @@ const Zeo4 = ({ language = 'es' }) => {
         camParams = ` --static-cam true`;
       }
 
-      const cliString = `> zeo4-core-engine --prompt ${cleanPrompt}${cleanNeg} --ar ${aspectRatio} --time ${duration} --cfg ${cfgScale}${seedParam}${camParams} --vram-alloc max`;
+      const cliString = `> zeo4-core-engine --prompt ${displayPrompt}${displayNeg} --ar ${aspectRatio} --time ${duration} --cfg ${cfgScale}${seedParam}${camParams} --vram-alloc max`;
       
       const payload = {
         model: "zeo4_cinema_node",
@@ -85,7 +114,7 @@ const Zeo4 = ({ language = 'es' }) => {
       };
 
       setOutputCommand({ cli: cliString, json: JSON.stringify(payload, null, 2), aspectRatio });
-    }, 2000);
+    }
   };
 
   const cameraSliders = [
@@ -348,7 +377,7 @@ const Zeo4 = ({ language = 'es' }) => {
                 'aspect-video'
               }`}>
                 <img 
-                  src="https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?auto=format&fit=crop&q=80&w=1200" 
+                  src={generatedImageUrl || "https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?auto=format&fit=crop&q=80&w=1200"} 
                   alt="Neural Render Frame" 
                   className="absolute inset-0 w-full h-full object-cover opacity-70"
                 />
