@@ -29,9 +29,6 @@
 ### Español
 **Studio Pro Suite** es un motor de generación de prompts paramétricos y gestor de preproducción narrativa diseñado para directores de fotografía, cineastas y diseñadores de prompts de IA. Actúa como un compilador estético que traduce conceptos de dirección en instrucciones físicas y de cámara precisas para motores de IA de vídeo (como Sora, Veo, Runway y Kling AI).
 
-> [!NOTE]
-> Engineered in close collaboration between **Antigravity AI** and **Jesús Ferrer (CHUS BZN)** to establish professional standards for AI cinematography.
-
 ---
 
 ## 🏗️ Technical Architecture / Arquitectura Técnica
@@ -78,6 +75,9 @@
 A comprehensive user guide is included directly in this repository as [manual.pdf](./manual.pdf). It contains step-by-step instructions, parameters descriptions, troubleshooting guides, and API integration walk-throughs translated into **7 languages** (Spanish, English, German, Russian, Japanese, Ukrainian, and Chinese).
 
 ---
+
+> [!NOTE]
+> Engineered in close collaboration between **Antigravity AI** and **Jesús Ferrer (CHUS BZN)** to establish professional standards for AI cinematography.
 
 *© 2026 Studio Pro Suite — Jesús Ferrer (CHUS BZN) — Proprietary License. All rights reserved.*
 
