@@ -60,7 +60,7 @@ const App = () => {
 
         <div className="px-4 mb-2">
           <p className="text-[9px] text-on-surface-variant font-meta-code tracking-widest uppercase">
-            {language === 'es' ? 'DISEÑADO POR' : 'DESIGNED BY'} <span className="text-rose-500/80 font-bold">CHUS BZN</span>
+            {language === 'es' ? 'CREADO POR' : 'CREATED BY'} <span className="text-rose-500/80 font-bold">PRODUKTES-CODE</span>
           </p>
         </div>
 
@@ -236,13 +236,13 @@ const App = () => {
             {/* FOOTER */}
             <div className="mt-6 text-center">
               <p className="text-[10px] text-gray-700 font-mono tracking-widest">
-                STUDIO PRO AI SUITE &mdash; {language === 'es' ? 'DISEÑADO POR' : 
-                 language === 'ru' ? 'ДИЗАЙН' : 
-                 language === 'de' ? 'DESIGNT VON' : 
-                 language === 'ja' ? 'デザイン：' : 
-                 language === 'uk' ? 'ДИЗАЙН ВІД' : 
-                 language === 'zh' ? '设计者' : 
-                 'DESIGNED BY'} <span className="text-rose-800">CHUS BZN</span>
+                STUDIO PRO AI SUITE &mdash; {language === 'es' ? 'CREADO POR' : 
+                 language === 'ru' ? 'СОЗДАНО' : 
+                 language === 'de' ? 'ERSTELLT VON' : 
+                 language === 'ja' ? '作成者：' : 
+                 language === 'uk' ? 'СТВОРЕНО' : 
+                 language === 'zh' ? '创建者' : 
+                 'CREATED BY'} <span className="text-rose-800 font-bold">PRODUKTES-CODE</span>
               </p>
             </div>
           </div>
@@ -264,7 +264,7 @@ const App = () => {
         
         {/* SYSTEM STATUS BAR (Stitch Design) */}
         <footer className="fixed bottom-0 right-0 left-64 h-8 border-t border-white/5 bg-black/40 backdrop-blur-sm z-40 flex items-center justify-between px-4 w-[calc(100%-16rem)]">
-          <span className="font-label-caps text-[10px] text-on-surface-variant tracking-widest">© 2026 ZEO AI ENGINE. VRAM: {sysStatus.vram}GB / 24GB | Nodes: {sysStatus.nodes} Active | Latency: {sysStatus.latency}ms</span>
+          <span className="font-label-caps text-[10px] text-on-surface-variant tracking-widest">© 2026 Creado por produktes-code. VRAM: {sysStatus.vram}GB / 24GB | Nodes: {sysStatus.nodes} Active | Latency: {sysStatus.latency}ms</span>
           <div className="flex items-center gap-4">
             <span className="font-meta-code text-[10px] text-emerald-400 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)] tracking-widest">SYNC: STABLE</span>
           </div>

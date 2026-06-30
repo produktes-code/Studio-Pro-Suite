@@ -57,3 +57,12 @@
 
 ## ⚖️ License and Credits
 *   **Owner:** Created by **produktes-code** and distributed under the Creative Commons **CC BY-NC-SA 4.0** license (Attribution-NonCommercial-ShareAlike 4.0 International).
+
+
+## Security & Limits
+- **Rate limiting:** API endpoints are protected to prevent abuse.
+- **Magic Bytes:** File uploads are verified via magic bytes analysis.
+- **Upload limits:** Maximum file size is 2 GB.
+
+## License
+Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.

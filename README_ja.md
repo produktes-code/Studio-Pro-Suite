@@ -57,3 +57,12 @@
 
 ## ⚖️ ライセンスとクレジット
 *   **所有者:** **produktes-code** によって作成され、クリエイティブ・コモンズ **CC BY-NC-SA 4.0**（表示 - 非営利 - 継承 4.0 国際）ライセンスの下で配布されています。
+
+
+## Security & Limits
+- **Rate limiting:** API endpoints are protected to prevent abuse.
+- **Magic Bytes:** File uploads are verified via magic bytes analysis.
+- **Upload limits:** Maximum file size is 2 GB.
+
+## License
+Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.

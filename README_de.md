@@ -57,3 +57,12 @@
 
 ## ⚖️ Lizenz und Urheberrecht
 *   **Eigentümer:** Erstellt von **produktes-code** und lizenziert unter Creative Commons **CC BY-NC-SA 4.0** (Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International).
+
+
+## Security & Limits
+- **Rate limiting:** API endpoints are protected to prevent abuse.
+- **Magic Bytes:** File uploads are verified via magic bytes analysis.
+- **Upload limits:** Maximum file size is 2 GB.
+
+## License
+Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.

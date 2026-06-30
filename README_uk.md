@@ -57,3 +57,12 @@
 
 ## ⚖️ Ліцензія та авторські права
 *   **Власник:** Створено **produktes-code** та поширюється на умовах ліцензії Creative Commons **CC BY-NC-SA 4.0** (Із зазначенням авторства — Некомерційна — Розповсюдження на тих самих умовах 4.0 Міжнародна).
+
+
+## Security & Limits
+- **Rate limiting:** API endpoints are protected to prevent abuse.
+- **Magic Bytes:** File uploads are verified via magic bytes analysis.
+- **Upload limits:** Maximum file size is 2 GB.
+
+## License
+Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.

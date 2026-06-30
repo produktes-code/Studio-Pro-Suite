@@ -20,7 +20,10 @@
       "target": [
         "dmg"
       ],
-      "icon": "build/icon.icns"
+      "icon": "build/icon.icns",
+      "extraResources": [
+        "backend-dist/**/*"
+      ]
     },
     "win": {
       "target": [

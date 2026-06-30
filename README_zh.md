@@ -57,3 +57,12 @@
 
 ## ⚖️ 许可与版权
 *   **所有者:** 由 **produktes-code** 创建，并根据知识共享 **CC BY-NC-SA 4.0**（署名-非商业性使用-相同方式共享 4.0 国际）许可协议进行分发。
+
+
+## Security & Limits
+- **Rate limiting:** API endpoints are protected to prevent abuse.
+- **Magic Bytes:** File uploads are verified via magic bytes analysis.
+- **Upload limits:** Maximum file size is 2 GB.
+
+## License
+Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.

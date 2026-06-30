@@ -86,3 +86,12 @@ A comprehensive user guide is included directly in this repository as [manual.pd
 
 *© 2026 Studio Pro Suite — Jesús Ferrer (CHUS BZN) — Proprietary License. All rights reserved.*
 
+
+
+## Security & Limits
+- **Rate limiting:** API endpoints are protected to prevent abuse.
+- **Magic Bytes:** File uploads are verified via magic bytes analysis.
+- **Upload limits:** Maximum file size is 2 GB.
+
+## License
+Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
