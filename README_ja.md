@@ -58,10 +58,13 @@
 
 ## 🚀 技術展開（インストール）
 
-ゼロフリクションアーキテクチャ：
+ゼロフリクションアーキテクチャにより、DSPとPythonがアプリケーションコアに直接コンパイルされます。
 
-• macOS：Gatekeeperがバイナリを隔離します。エンジニアの解決策：「右クリック->開く」。
-• Windows：自動PATH構成。
+### 🍎 macOSユーザー（Gatekeeper）
+有料証明書がないため、Gatekeeperはファイルを隔離します。ローカルでの正当なバイパス方法は、**アプリを右クリック -> 開く** です。
+
+### 🪟 Windowsユーザー（SmartScreen）
+`.exe`を実行すると、Windows Defenderが青い警告を表示する場合があります。**「詳細情報」**をクリックしてから、**「実行」**をクリックしてください。
 
 ---
 
@@ -79,5 +82,3 @@
 produktes-codeとJesus Ferrer（CHUS BZN）によって開発されました。 CC BY-NC-SA 4.0。 企業標準。
 
 
-
-⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".
