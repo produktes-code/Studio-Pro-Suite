@@ -66,3 +66,7 @@
 
 ## License
 Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
+
+
+⚠️ Hinweis für macOS-Benutzer: Beim ersten Öffnen der Anwendung zeigt macOS möglicherweise eine Sicherheitswarnung an. Lösung: Klicken Sie mit der rechten Maustaste auf die Anwendung und wählen Sie "Öffnen", dann klicken Sie im Dialog auf "Öffnen". Falls sie bereits blockiert wurde, gehen Sie zu Systemeinstellungen > Datenschutz & Sicherheit und klicken Sie auf "Trotzdem öffnen".
+

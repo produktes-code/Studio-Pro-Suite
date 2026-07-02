@@ -99,7 +99,7 @@ endobj
 endobj
 6 0 obj
 <<
-/Length 2026
+/Length 2632
 >>
 stream
 2 J
@@ -112,41 +112,35 @@ BT /F1 14.00 Tf ET
 BT 31.18 710.13 Td (8. FAQ) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 690.07 Td (Contenido para 8. FAQ en Español.) Tj ET
-BT 31.18 661.72 Td (#) Tj ET
+BT 31.18 647.55 Td (¿Por qué macOS  dice que la aplicación no se puede abrir? Esto oc urre porque la aplicación no está firmada con un c) Tj ET
+BT 31.18 633.38 Td (ertificado de Apple Developer. La aplicación es co mpletamente segura. Para abrirla: haz clic derecho  sobre la) Tj ET
+BT 31.18 619.20 Td (aplicación y selecciona "Abrir", luego h az clic en "Abrir" en el aviso. La próxima vez no  aparecerá el aviso.) Tj ET
+BT 31.18 590.86 Td (Why does macOS say the applic ation cannot be opened? This happens because the a pplication is not signed with an) Tj ET
+BT 31.18 576.69 Td (Apple Developer c ertificate. The application is completely safe. To  open it: right-click on the application and selec t) Tj ET
+BT 31.18 562.51 Td ("Open", then click "Open" in the warning. The wa rning will not appear next time.) Tj ET
+BT 31.18 534.17 Td (Warum sagt macOS , dass die Anwendung nicht geöffnet werden kann? D ies geschieht, weil die Anwendung nicht mit) Tj ET
+BT 31.18 519.99 Td (einem  Apple Developer-Zertifikat signiert ist. Die Anwen dung ist völlig sicher. Zum Öffnen: Klicken Sie mi t der rechten) Tj ET
+BT 31.18 505.82 Td (Maustaste auf die Anwendung und wähl en Sie "Öffnen", dann klicken Sie im Warnhinweis a uf "Öffnen". Beim nächsten) Tj ET
+BT 31.18 491.65 Td (Mal erscheint der Hinwe is nicht mehr.) Tj ET
+BT 31.18 463.30 Td ( macOS ,     ?   ,      Apple Deve loper.   .   :         "",   ""  .     '.) Tj ET
+BT 31.18 434.95 Td ( macOS  ,    ?   ,      Apple Developer.   .   :         " ",   ""  .      .) Tj ET
+BT 31.18 406.61 Td ( macOS  Apple Developer """") Tj ET
+BT 31.18 378.26 Td (m acOSApple Developer) Tj ET
+BT 31.18 335.74 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 625.09 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 299.11 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 605.03 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en Español.) Tj ET
-BT 31.18 576.69 Td (Creado por prod uktes-code. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 279.05 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en Español.) Tj ET
+BT 31.18 250.70 Td (Creado por prod uktes-code. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 511.71 Td (--- English \(EN\) ---) Tj ET
+BT 31.18 185.72 Td (--- English \(EN\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 477.47 Td (#) Tj ET
+BT 31.18 151.49 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 440.84 Td (1. Introducción y bienvenida) Tj ET
+BT 31.18 114.86 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 420.78 Td (Contenido para 1. Introducción y bienvenida en Eng lish.) Tj ET
-BT 31.18 392.43 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 355.80 Td (2. Instalación y requisitos del sistema) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 335.74 Td (Contenido para 2. Instalación y requisitos del sis tema en English.) Tj ET
-BT 31.18 307.39 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 270.76 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 250.70 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en English.) Tj ET
-BT 31.18 222.35 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 185.72 Td (4. Guía de uso paso a paso) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 165.66 Td (Contenido para 4. Guía de uso paso a paso en Engli sh.) Tj ET
-BT 31.18 137.32 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 100.68 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
-BT 31.18 72.34 Td (Streaming\)) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 52.28 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en English.) Tj ET
+BT 31.18 94.80 Td (Contenido para 1. Introducción y bienvenida en Eng lish.) Tj ET
+BT 31.18 66.45 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 2) Tj ET
 
@@ -162,53 +156,55 @@ endobj
 endobj
 8 0 obj
 <<
-/Length 1953
+/Length 2192
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 746.76 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 710.13 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
+BT 31.18 752.65 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 690.07 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en English.) Tj ET
-BT 31.18 661.72 Td (#) Tj ET
+BT 31.18 732.59 Td (Contenido para 2. Instalación y requisitos del sis tema en English.) Tj ET
+BT 31.18 704.24 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 625.09 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT 31.18 667.61 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 605.03 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en English.) Tj ET
-BT 31.18 576.69 Td (- Rate l imiting) Tj ET
-BT 31.18 562.51 Td (- Magic Bytes) Tj ET
-BT 31.18 548.34 Td (- Límite de 2 GB) Tj ET
-BT 31.18 534.17 Td (- CORS) Tj ET
-BT 31.18 505.82 Td (#) Tj ET
+BT 31.18 647.55 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en English.) Tj ET
+BT 31.18 619.20 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (8. FAQ) Tj ET
+BT 31.18 582.57 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td (Contenido para 8. FAQ en English.) Tj ET
+BT 31.18 562.51 Td (Contenido para 4. Guía de uso paso a paso en Engli sh.) Tj ET
+BT 31.18 534.17 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 497.53 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
+BT 31.18 469.19 Td (Streaming\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 449.13 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en English.) Tj ET
 BT 31.18 420.78 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 384.15 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 384.15 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 364.09 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en English.) Tj ET
-BT 31.18 335.74 Td (Creado por prod uktes-code. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 364.09 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en English.) Tj ET
+BT 31.18 335.74 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 270.76 Td (--- Deutsch \(DE\) ---) Tj ET
+BT 31.18 299.11 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 236.53 Td (#) Tj ET
+BT 31.18 279.05 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en English.) Tj ET
+BT 31.18 250.70 Td (- Rate l imiting) Tj ET
+BT 31.18 236.53 Td (- Magic Bytes) Tj ET
+BT 31.18 222.35 Td (- Límite de 2 GB) Tj ET
+BT 31.18 208.18 Td (- CORS) Tj ET
+BT 31.18 179.83 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 199.89 Td (1. Introducción y bienvenida) Tj ET
+BT 31.18 143.20 Td (8. FAQ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 179.83 Td (Contenido para 1. Introducción y bienvenida en Deu tsch.) Tj ET
-BT 31.18 151.49 Td (#) Tj ET
+BT 31.18 123.14 Td (Contenido para 8. FAQ en English.) Tj ET
+BT 31.18 94.80 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 114.86 Td (2. Instalación y requisitos del sistema) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 94.80 Td (Contenido para 2. Instalación y requisitos del sis tema en Deutsch.) Tj ET
-BT 31.18 66.45 Td (#) Tj ET
+BT 31.18 58.16 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 3) Tj ET
 
@@ -224,53 +220,53 @@ endobj
 endobj
 10 0 obj
 <<
-/Length 2178
+/Length 2130
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 732.59 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en Deutsch.) Tj ET
-BT 31.18 704.24 Td (#) Tj ET
+BT 31.18 760.94 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en English.) Tj ET
+BT 31.18 732.59 Td (Creado por prod uktes-code. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 667.61 Td (4. Guía de uso paso a paso) Tj ET
+BT 31.18 667.61 Td (--- Deutsch \(DE\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 647.55 Td (Contenido para 4. Guía de uso paso a paso en Deuts ch.) Tj ET
-BT 31.18 619.20 Td (#) Tj ET
+BT 31.18 633.38 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 582.57 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
-BT 31.18 554.23 Td (Streaming\)) Tj ET
+BT 31.18 596.75 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 534.17 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en Deutsch.) Tj ET
-BT 31.18 505.82 Td (#) Tj ET
+BT 31.18 576.69 Td (Contenido para 1. Introducción y bienvenida en Deu tsch.) Tj ET
+BT 31.18 548.34 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
+BT 31.18 511.71 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en Deutsch.) Tj ET
-BT 31.18 420.78 Td (#) Tj ET
+BT 31.18 491.65 Td (Contenido para 2. Instalación y requisitos del sis tema en Deutsch.) Tj ET
+BT 31.18 463.30 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 384.15 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT 31.18 426.67 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 364.09 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en Deutsch.) Tj ET
-BT 31.18 335.74 Td (- Rate l imiting) Tj ET
-BT 31.18 321.57 Td (- Magic Bytes) Tj ET
-BT 31.18 307.39 Td (- Límite de 2 GB) Tj ET
-BT 31.18 293.22 Td (- CORS) Tj ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 406.61 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en Deutsch.) Tj ET
+BT 31.18 378.26 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (8. FAQ) Tj ET
+BT 31.18 341.63 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 208.18 Td (Contenido para 8. FAQ en Deutsch.) Tj ET
+BT 31.18 321.57 Td (Contenido para 4. Guía de uso paso a paso en Deuts ch.) Tj ET
+BT 31.18 293.22 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 256.59 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
+BT 31.18 228.24 Td (Streaming\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 208.18 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en Deutsch.) Tj ET
 BT 31.18 179.83 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 143.20 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 143.20 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 123.14 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en Deutsch.) Tj ET
-BT 31.18 94.80 Td (Creado por prod uktes-code. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 123.14 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en Deutsch.) Tj ET
+BT 31.18 94.80 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 58.16 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 4) Tj ET
 
@@ -286,56 +282,54 @@ endobj
 endobj
 12 0 obj
 <<
-/Length 2160
+/Length 1951
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (---  \(UK\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 718.42 Td (#) Tj ET
+BT 31.18 760.94 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en Deutsch.) Tj ET
+BT 31.18 732.59 Td (- Rate l imiting) Tj ET
+BT 31.18 718.42 Td (- Magic Bytes) Tj ET
+BT 31.18 704.24 Td (- Límite de 2 GB) Tj ET
+BT 31.18 690.07 Td (- CORS) Tj ET
+BT 31.18 661.72 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (1. Introducción y bienvenida) Tj ET
+BT 31.18 625.09 Td (8. FAQ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 661.72 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
-BT 31.18 633.38 Td ( #) Tj ET
+BT 31.18 605.03 Td (Contenido para 8. FAQ en Deutsch.) Tj ET
+BT 31.18 576.69 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 596.75 Td (2. Instalación y requisitos del sistema) Tj ET
+BT 31.18 540.05 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 576.69 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
-BT 31.18 548.34 Td (#) Tj ET
+BT 31.18 519.99 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en Deutsch.) Tj ET
+BT 31.18 491.65 Td (Creado por prod uktes-code. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 511.71 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
+BT 31.18 426.67 Td (---  \(UK\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 491.65 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
-BT 31.18 463.30 Td (#) Tj ET
+BT 31.18 392.43 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 426.67 Td (4. Guía de uso paso a paso) Tj ET
+BT 31.18 355.80 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 406.61 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
-BT 31.18 378.26 Td (#) Tj ET
+BT 31.18 335.74 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
+BT 31.18 307.39 Td ( #) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 341.63 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
-BT 31.18 313.28 Td (Streaming\)) Tj ET
+BT 31.18 270.76 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 293.22 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 250.70 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
+BT 31.18 222.35 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
+BT 31.18 185.72 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 208.18 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
-BT 31.18 179.83 Td (#) Tj ET
+BT 31.18 165.66 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
+BT 31.18 137.32 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 143.20 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT 31.18 100.68 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 123.14 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
-BT 31.18 94.80 Td (- Rate limiting ) Tj ET
-BT 31.18 80.62 Td (- Magic Bytes) Tj ET
-BT 31.18 66.45 Td (- Límite de 2 GB) Tj ET
-BT 31.18 52.28 Td (- CORS) Tj ET
+BT 31.18 80.62 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
+BT 31.18 52.28 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 5) Tj ET
 
@@ -351,54 +345,52 @@ endobj
 endobj
 14 0 obj
 <<
-/Length 1969
+/Length 1980
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 746.76 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 710.13 Td (8. FAQ) Tj ET
+BT 31.18 752.65 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
+BT 31.18 724.30 Td (Streaming\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 690.07 Td (Contenido para 8. FAQ en .) Tj ET
-BT 31.18 661.72 Td (#) Tj ET
+BT 31.18 704.24 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
+BT 31.18 675.90 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 625.09 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 639.26 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 605.03 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
-BT 31.18 576.69 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 619.20 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
+BT 31.18 590.86 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 511.71 Td (---  \(RU\) ---) Tj ET
+BT 31.18 554.23 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 477.47 Td (#) Tj ET
+BT 31.18 534.17 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
+BT 31.18 505.82 Td (- Rate limiting ) Tj ET
+BT 31.18 491.65 Td (- Magic Bytes) Tj ET
+BT 31.18 477.47 Td (- Límite de 2 GB) Tj ET
+BT 31.18 463.30 Td (- CORS) Tj ET
+BT 31.18 434.95 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 440.84 Td (1. Introducción y bienvenida) Tj ET
+BT 31.18 398.32 Td (8. FAQ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 420.78 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
-BT 31.18 392.43 Td ( #) Tj ET
+BT 31.18 378.26 Td (Contenido para 8. FAQ en .) Tj ET
+BT 31.18 349.91 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 355.80 Td (2. Instalación y requisitos del sistema) Tj ET
+BT 31.18 313.28 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 335.74 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
-BT 31.18 307.39 Td (#) Tj ET
+BT 31.18 293.22 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
+BT 31.18 264.87 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 270.76 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
+BT 31.18 199.89 Td (---  \(RU\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 250.70 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
-BT 31.18 222.35 Td (#) Tj ET
+BT 31.18 165.66 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 185.72 Td (4. Guía de uso paso a paso) Tj ET
+BT 31.18 129.03 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 165.66 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
-BT 31.18 137.32 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 100.68 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
-BT 31.18 72.34 Td (Streaming\)) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 52.28 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
+BT 31.18 108.97 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
+BT 31.18 80.62 Td ( #) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 6) Tj ET
 
@@ -414,53 +406,55 @@ endobj
 endobj
 16 0 obj
 <<
-/Length 1904
+/Length 2142
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 746.76 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 710.13 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
+BT 31.18 752.65 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 690.07 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
-BT 31.18 661.72 Td (#) Tj ET
+BT 31.18 732.59 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
+BT 31.18 704.24 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 625.09 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT 31.18 667.61 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 605.03 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
-BT 31.18 576.69 Td (- Rate limiting ) Tj ET
-BT 31.18 562.51 Td (- Magic Bytes) Tj ET
-BT 31.18 548.34 Td (- Límite de 2 GB) Tj ET
-BT 31.18 534.17 Td (- CORS) Tj ET
-BT 31.18 505.82 Td (#) Tj ET
+BT 31.18 647.55 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
+BT 31.18 619.20 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (8. FAQ) Tj ET
+BT 31.18 582.57 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td (Contenido para 8. FAQ en .) Tj ET
+BT 31.18 562.51 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
+BT 31.18 534.17 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 497.53 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
+BT 31.18 469.19 Td (Streaming\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 449.13 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
 BT 31.18 420.78 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 384.15 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 384.15 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 364.09 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
-BT 31.18 335.74 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 364.09 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
+BT 31.18 335.74 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 270.76 Td (---  \(ZH\) ---) Tj ET
+BT 31.18 299.11 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 236.53 Td (#) Tj ET
+BT 31.18 279.05 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
+BT 31.18 250.70 Td (- Rate limiting ) Tj ET
+BT 31.18 236.53 Td (- Magic Bytes) Tj ET
+BT 31.18 222.35 Td (- Límite de 2 GB) Tj ET
+BT 31.18 208.18 Td (- CORS) Tj ET
+BT 31.18 179.83 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 199.89 Td (1. Introducción y bienvenida) Tj ET
+BT 31.18 143.20 Td (8. FAQ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 179.83 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
-BT 31.18 151.49 Td ( #) Tj ET
+BT 31.18 123.14 Td (Contenido para 8. FAQ en .) Tj ET
+BT 31.18 94.80 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 114.86 Td (2. Instalación y requisitos del sistema) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 94.80 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
-BT 31.18 66.45 Td (#) Tj ET
+BT 31.18 58.16 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 7) Tj ET
 
@@ -476,53 +470,53 @@ endobj
 endobj
 18 0 obj
 <<
-/Length 2128
+/Length 2073
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 732.59 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
-BT 31.18 704.24 Td (#) Tj ET
+BT 31.18 760.94 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
+BT 31.18 732.59 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 667.61 Td (4. Guía de uso paso a paso) Tj ET
+BT 31.18 667.61 Td (---  \(ZH\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 647.55 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
-BT 31.18 619.20 Td (#) Tj ET
+BT 31.18 633.38 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 582.57 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
-BT 31.18 554.23 Td (Streaming\)) Tj ET
+BT 31.18 596.75 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 534.17 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
-BT 31.18 505.82 Td (#) Tj ET
+BT 31.18 576.69 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
+BT 31.18 548.34 Td ( #) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
+BT 31.18 511.71 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
-BT 31.18 420.78 Td (#) Tj ET
+BT 31.18 491.65 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
+BT 31.18 463.30 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 384.15 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT 31.18 426.67 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 364.09 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
-BT 31.18 335.74 Td (- Rate limiting ) Tj ET
-BT 31.18 321.57 Td (- Magic Bytes) Tj ET
-BT 31.18 307.39 Td (- Límite de 2 GB) Tj ET
-BT 31.18 293.22 Td (- CORS) Tj ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 406.61 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
+BT 31.18 378.26 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (8. FAQ) Tj ET
+BT 31.18 341.63 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 208.18 Td (Contenido para 8. FAQ en .) Tj ET
+BT 31.18 321.57 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
+BT 31.18 293.22 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 256.59 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
+BT 31.18 228.24 Td (Streaming\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 208.18 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
 BT 31.18 179.83 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 143.20 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 143.20 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 123.14 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
-BT 31.18 94.80 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 123.14 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
+BT 31.18 94.80 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 58.16 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 8) Tj ET
 
@@ -538,56 +532,54 @@ endobj
 endobj
 20 0 obj
 <<
-/Length 2160
+/Length 1930
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (---  \(JA\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 718.42 Td (#) Tj ET
+BT 31.18 760.94 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
+BT 31.18 732.59 Td (- Rate limiting ) Tj ET
+BT 31.18 718.42 Td (- Magic Bytes) Tj ET
+BT 31.18 704.24 Td (- Límite de 2 GB) Tj ET
+BT 31.18 690.07 Td (- CORS) Tj ET
+BT 31.18 661.72 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (1. Introducción y bienvenida) Tj ET
+BT 31.18 625.09 Td (8. FAQ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 661.72 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
-BT 31.18 633.38 Td ( #) Tj ET
+BT 31.18 605.03 Td (Contenido para 8. FAQ en .) Tj ET
+BT 31.18 576.69 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 596.75 Td (2. Instalación y requisitos del sistema) Tj ET
+BT 31.18 540.05 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 576.69 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
-BT 31.18 548.34 Td (#) Tj ET
+BT 31.18 519.99 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
+BT 31.18 491.65 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 511.71 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
+BT 31.18 426.67 Td (---  \(JA\) ---) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 491.65 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
-BT 31.18 463.30 Td (#) Tj ET
+BT 31.18 392.43 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 426.67 Td (4. Guía de uso paso a paso) Tj ET
+BT 31.18 355.80 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 406.61 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
-BT 31.18 378.26 Td (#) Tj ET
+BT 31.18 335.74 Td (Contenido para 1. Introducción y bienvenida en .) Tj ET
+BT 31.18 307.39 Td ( #) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 341.63 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
-BT 31.18 313.28 Td (Streaming\)) Tj ET
+BT 31.18 270.76 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 293.22 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 250.70 Td (Contenido para 2. Instalación y requisitos del sis tema en .) Tj ET
+BT 31.18 222.35 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
+BT 31.18 185.72 Td (3. Configuración inicial \(API keys, variables de e ntorno\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 208.18 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
-BT 31.18 179.83 Td (#) Tj ET
+BT 31.18 165.66 Td (Contenido para 3. Configuración inicial \(API keys,  variables de entorno\) en .) Tj ET
+BT 31.18 137.32 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 143.20 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT 31.18 100.68 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 123.14 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
-BT 31.18 94.80 Td (- Rate limiting ) Tj ET
-BT 31.18 80.62 Td (- Magic Bytes) Tj ET
-BT 31.18 66.45 Td (- Límite de 2 GB) Tj ET
-BT 31.18 52.28 Td (- CORS) Tj ET
+BT 31.18 80.62 Td (Contenido para 4. Guía de uso paso a paso en .) Tj ET
+BT 31.18 52.28 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Página 9) Tj ET
 
@@ -603,25 +595,43 @@ endobj
 endobj
 22 0 obj
 <<
-/Length 666
+/Length 1672
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 192.29 795.77 Td (Studio Pro Suite - Manual de Usuario) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 746.76 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 710.13 Td (8. FAQ) Tj ET
+BT 31.18 752.65 Td (5. Explicación de funcionalidades \(Editor, Color,  Audio, Efectos, Export,) Tj ET
+BT 31.18 724.30 Td (Streaming\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 690.07 Td (Contenido para 8. FAQ en .) Tj ET
-BT 31.18 661.72 Td (#) Tj ET
+BT 31.18 704.24 Td (Contenido para 5. Explicación de funcionalidades \( Editor, Color, Audio, Efectos, Export, Streaming\)  en .) Tj ET
+BT 31.18 675.90 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 625.09 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT 31.18 639.26 Td (6. Sistema multimodal \(7 idiomas: ES, EN, DE, UK,  RU, ZH, JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 605.03 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
-BT 31.18 576.69 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
+BT 31.18 619.20 Td (Contenido para 6. Sistema multimodal \(7 idiomas: E S, EN, DE, UK, RU, ZH, JA\) en .) Tj ET
+BT 31.18 590.86 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 554.23 Td (7. Blindaje y seguridad \(Rate limiting, Magic Byte s, 2GB, CORS\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 534.17 Td (Contenido para 7. Blindaje y seguridad \(Rate limit ing, Magic Bytes, 2GB, CORS\) en .) Tj ET
+BT 31.18 505.82 Td (- Rate limiting ) Tj ET
+BT 31.18 491.65 Td (- Magic Bytes) Tj ET
+BT 31.18 477.47 Td (- Límite de 2 GB) Tj ET
+BT 31.18 463.30 Td (- CORS) Tj ET
+BT 31.18 434.95 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 398.32 Td (8. FAQ) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 378.26 Td (Contenido para 8. FAQ en .) Tj ET
+BT 31.18 349.91 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 313.28 Td (9. Créditos y licencia \(produktes-code, CC BY-NC-S A 4.0\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 293.22 Td (Contenido para 9. Créditos y licencia \(produktes-c ode, CC BY-NC-SA 4.0\) en .) Tj ET
+BT 31.18 264.87 Td (Creado por produktes-c ode. Licencia: CC BY-NC-SA 4.0) Tj ET
 BT /F3 8.00 Tf ET
 BT 279.63 25.95 Td (Página 10) Tj ET
 
@@ -733,7 +743,7 @@ endobj
 endobj
 36 0 obj
 <<
-/CreationDate (D:20260702021020Z)
+/CreationDate (D:20260702022806Z)
 >>
 endobj
 xref
@@ -745,43 +755,43 @@ xref
 0000000341 00000 n 
 0000002610 00000 n 
 0000002691 00000 n 
-0000004769 00000 n 
-0000004850 00000 n 
-0000006855 00000 n 
-0000006937 00000 n 
-0000009168 00000 n 
-0000009251 00000 n 
-0000011464 00000 n 
-0000011547 00000 n 
-0000013569 00000 n 
-0000013652 00000 n 
-0000015609 00000 n 
-0000015692 00000 n 
-0000017873 00000 n 
-0000017956 00000 n 
-0000020169 00000 n 
-0000020252 00000 n 
-0000020970 00000 n 
-0000021073 00000 n 
-0000021171 00000 n 
-0000021277 00000 n 
-0000021388 00000 n 
-0000021499 00000 n 
-0000021610 00000 n 
-0000021721 00000 n 
-0000021832 00000 n 
-0000021943 00000 n 
-0000022054 00000 n 
-0000022165 00000 n 
-0000022276 00000 n 
-0000022387 00000 n 
+0000005375 00000 n 
+0000005456 00000 n 
+0000007700 00000 n 
+0000007782 00000 n 
+0000009965 00000 n 
+0000010048 00000 n 
+0000012052 00000 n 
+0000012135 00000 n 
+0000014168 00000 n 
+0000014251 00000 n 
+0000016446 00000 n 
+0000016529 00000 n 
+0000018655 00000 n 
+0000018738 00000 n 
+0000020721 00000 n 
+0000020804 00000 n 
+0000022529 00000 n 
+0000022632 00000 n 
+0000022730 00000 n 
+0000022836 00000 n 
+0000022947 00000 n 
+0000023058 00000 n 
+0000023169 00000 n 
+0000023280 00000 n 
+0000023391 00000 n 
+0000023502 00000 n 
+0000023613 00000 n 
+0000023724 00000 n 
+0000023835 00000 n 
+0000023946 00000 n 
 trailer
 <<
 /Size 37
 /Root 2 0 R
 /Info 36 0 R
-/ID [<E63C3BFE3B9352A25ECC075C10171449><E63C3BFE3B9352A25ECC075C10171449>]
+/ID [<6809012CB1217EC2685E991D82F2D238><6809012CB1217EC2685E991D82F2D238>]
 >>
 startxref
-22443
+24002
 %%EOF

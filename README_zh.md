@@ -66,3 +66,7 @@
 
 ## License
 Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
+
+
+⚠️ macOS 用户须知：首次打开应用程序时，macOS 可能会显示安全警告。解决方法：右键单击应用程序并选择"打开"，然后在对话框中单击"打开"。如果已被阻止，请前往系统设置 > 隐私与安全性，然后点击"仍然打开"。
+
