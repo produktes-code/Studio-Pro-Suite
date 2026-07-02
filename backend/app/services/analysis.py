@@ -7,7 +7,7 @@ logger = logging.getLogger("studio_pro_suite")
 
 class AnalysisService:
     def __init__(self):
-        pass
+        self.is_initialized = True
 
     def analyze_audio(self, filepath: str) -> dict:
         if not os.path.exists(filepath):
