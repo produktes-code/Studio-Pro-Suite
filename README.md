@@ -10,94 +10,76 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge" alt="Version 1.0.0" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
 
-<p align="center">
-  <b>🌐 Multilingual & Multimodal Support / Soporte Multiidioma:</b><br/>
-  🇪🇸 Spanish | 🇬🇧 English | 🇩🇪 German | 🇷🇺 Russian | 🇯🇵 Japanese | 🇺🇦 Ukrainian | 🇨🇳 Chinese
-</p>
+🌐 **Read this in:** **🇬🇧 English** | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 Overview / Resumen
+## 🎯 The Vision (Introduction)
 
-### English
-**Studio Pro Suite** is a state-of-the-art parametric prompt generation engine and narrative pre-production layout manager engineered for professional Directors of Photography, cinema directors, and generative AI prompt engineers. It functions as a precise hardware-to-aesthetic compiler that translates abstract cinematic intent into mathematically and physically accurate payloads for modern video generation engines (such as Sora, Veo, Runway, and Kling AI).
-
-### Español
-**Studio Pro Suite** es un motor de generación de prompts paramétricos y gestor de preproducción narrativa diseñado para directores de fotografía, cineastas y diseñadores de prompts de IA. Actúa como un compilador estético que traduce conceptos de dirección en instrucciones físicas y de cámara precisas para motores de IA de vídeo (como Sora, Veo, Runway y Kling AI).
-
----
-
-## 📸 Interface Preview (Screenshot)
-![Desktop Layout](docs/screenshots/screenshot-Desktop.png)
-
----
-
-## 🏗️ Technical Architecture / Arquitectura Técnica
-
-*   **Frontend Interface:** Built with **React 19** and compiled via **Vite 8** using a high-performance, dark-theme *Glassmorphism* UI system.
-*   **Desktop Shell:** Containerized in **Electron** providing native hardware access and cross-platform native execution.
-*   **Multilingual Engine:** Fully localized configuration across 7 languages using localized state dictionaries.
-
----
-
-## ⚙️ Core Modules & Features / Módulos y Características
-
-### 🎬 Cinema Generator Pro
-*   **Camera Bodies:** Choose from over 80 configurations (IMAX 70mm, Arri Alexa LF, RED V-Raptor, CCTV, Thermal).
-*   **Director Styles:** Incorporates preset stylistic profiles of legendary directors (Roger Deakins, Greig Fraser, Emmanuel Lubezki).
-*   **Lens Optics:** Adjust T-stop aperture (T1.2 to T22) and select Cooke Anamorphic or Zeiss Spherical configurations.
-
-### ✍️ Script Writer Pro
-*   **AI Cast & Crew:** Simulates the collaborative styles of specific directors to modulate prompt syntax.
-*   **Character Memory:** Restricts character prompts to maintain visual consistency across scenes.
-
-### 🔬 ZEO-4 Cloud Engine
-*   **Text-to-Audio Synthesizer:** Processes raw script descriptions into synthesized voice payloads.
-*   **Hardware Latency Monitor:** Provides live rendering latency and queue estimations.
-
----
-
-## 🚀 Desktop Installation / Instalación en Escritorio
-
-### 🍎 macOS
-1. Download `Studio Pro Suite-1.0.0.dmg` from the **Releases** tab.
-2. Open the `.dmg` and drag the application to your `Applications` folder.
-
-### 🔌 Windows
-1. Download `Studio Pro Suite Setup 1.0.0.exe` from the **Releases** tab.
-2. Run the installer and follow the setup wizard.
-
----
-
-## 📖 Technical User Manual / Manual Técnico
-
-📄 **[Download the Multilingual Technical Manual (PDF)](./manual.pdf)**
-
-A comprehensive user guide is included directly in this repository as [manual.pdf](./manual.pdf). It contains step-by-step instructions, parameters descriptions, troubleshooting guides, and API integration walk-throughs translated into **7 languages** (Spanish, English, German, Russian, Japanese, Ukrainian, and Chinese).
-
----
+Inconsistency is the greatest enemy in the era of generative models. A user generates an excellent shot, but the reverse shot loses all art direction or the wardrobe changes color. This is unacceptable in professional production. We conceived Studio Pro Suite not just as a generator, but as an automated 'Script Supervisor' and an Art Directors simulator. Our engineering goal was to isolate deterministic variables (Optics, Format, Authorship) and force them as absolute immutable directives in every API call. The result is the most rigorous aesthetic compiler on the market, built for prompt engineers who demand perfect cinematic continuity.
 
 > [!NOTE]
-> Engineered in close collaboration between **Antigravity AI** and **Jesús Ferrer (CHUS BZN)** to establish professional standards for AI cinematography.
+> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
 
-*© 2026 Studio Pro Suite — Jesús Ferrer (CHUS BZN) — Proprietary License. All rights reserved.*
+---
+
+## 📸 Interface / Ergonomics
+
+![Desktop Interface](docs/screenshots/screenshot-Desktop.png)
 
 
+---
 
-## Security & Limits
-- **Rate limiting:** API endpoints are protected to prevent abuse.
-- **Magic Bytes:** File uploads are verified via magic bytes analysis.
-- **Upload limits:** Maximum file size is 2 GB.
+## ⚙️ Parameter Masterclass (Features)
 
-## License
-Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
+- **Deterministic Hardware (Cinema Generator Pro)**: We hardcoded over 80 exact profiles. When you choose 'IMAX MSM 9802' we aren't just adding the word IMAX; we're ordering the system to induce expansive shot compression, pristine resolution, and the extreme depth of field associated with 70mm film.
+- **Authorship Injection (Director Profiling)**: Art lies in nuance. Selecting 'Safdie Brothers' restructures the scene applying 'Neon, Urban Chaos and High Grain' modifiers. 'Wes Anderson' applies strict 'Central Symmetry and Pastel Palettes'. It simulates the brains of cinema geniuses.
+- **Rigorous Aspect Ratios Control**: We offer pure selects (16:9, 2.39:1, 4:3) that alter not only the visual crop but the geometric composition assumed by the generative network.
+- **Script Writer Pro (Session Memory)**: The core of the continuity problem. This module acts as a local RAM database retaining protagonist descriptors. The AI is forced to read the previous state before generating the new shot, avoiding hallucinations.
+- **Text-To-Speech Integration (ZEO-4)**: The ZEO-4 engine allows processing dialog lines by sending massive JSON payloads to voice synthesis networks, transforming raw text into acted voiceovers with natural intonation.
+
+---
+
+## 🛡️ Shielding Architecture (Security)
+
+In Retail and Enterprise deployment, a system crash is not a bug; it is capital loss. We designed a defensive armor (Shielding) emulating DevSecOps best practices:
+
+• **Anti-Flood Engineering (Rate limiting)**: Asynchronous algorithms strangle anomalous request spikes using limitation middlewares.
+• **Binary Crystallography (Magic Bytes)**: The system opens the file header and verifies the native hexadecimal sequence to certify container integrity.
+• **RAM Sanity (2 GB Limit)**: We relentlessly reject any atypical weight at the upload threshold to prevent Out Of Memory attacks.
+
+---
+
+## 🚀 Technical Deployment (Installation)
+
+The deployment process of this tool responds to an industry imperative: in a studio or production environment, time spent configuring dependencies is time wasted. We packaged a 'Zero-Friction' architecture compiling DSP libraries, Python binaries, and renderers directly into the application's core.
+
+• **macOS Systems**: The `.dmg` binary guarantees absolute portability. Note: Because it lacks a paid developer certificate for Apple's Notarization Service, macOS Gatekeeper will quarantine the binary. As engineers, we know the legitimate local bypass method is 'Right-click -> Open'. It is not a flaw; it is the standard flow of high-performance open-source software.
+• **Windows Systems**: The installer payload silently auto-configures the Windows PATH environment, evading conflicts with pre-existing Python installations.
+
+---
+
+## 📚 Documentation & Manuals
+
+For an exhaustive technical masterclass, troubleshooting guides, and full API details, please download our official manual:
+
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+
+
+---
+
+## ⚖️ Engineering Manifesto, Credits & License
+
+Software conceived and articulated from the produktes-code labs in inseparable union with Engineer Jesus Ferrer Garcia (CHUS BZN).
+
+Licensed under proprietary restrictions and strictest open source margins (CC BY-NC-SA 4.0). CORPORATE STANDARD - RETAIL READY.
+
 
 
 ⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".
-
-⚠️ Aviso para usuarios de macOS: Al abrir la aplicación por primera vez, macOS puede mostrar un aviso de seguridad. Solución: haz clic derecho sobre la aplicación y selecciona "Abrir", luego haz clic en "Abrir" en el diálogo. Si ya fue bloqueada, ve a Preferencias del Sistema > Privacidad y Seguridad y haz clic en "Abrir de todos modos".
-

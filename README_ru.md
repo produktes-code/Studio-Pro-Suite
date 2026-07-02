@@ -2,71 +2,82 @@
   <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Studio Pro Suite Logo" />
 </p>
 
-<h1 align="center">Studio Pro Suite (RU)</h1>
+<h1 align="center">Studio Pro Suite V1.0.0</h1>
 
 <p align="center">
-  <b>Ультимативная экосистема для создания ИИ-кинематографа и параметрической автоматизации камер</b><br/>
+  <b>The Ultimate AI Cinematic Creation & Parametric Camera Automation Ecosystem</b><br/>
+  <i>El Ecosistema Definitivo de Creación Cinematográfica IA y Automatización de Cámara Paramétrica</i>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge" alt="Версия 1.0.0" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Статус" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="Лицензия" />
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
 
----
-
-## 🎯 Описание проекта
-**Studio Pro Suite** — это ультрасовременный параметрический генератор промптов и менеджер макетов предварительного производства сценариев, созданный для профессиональных кинооператоров, режиссеров и разработчиков промптов генеративного ИИ. Он работает как точный транслятор художественного замысла в математически выверенные команды для современных систем генерации видео и изображений (таких как Sora, Veo, Runway, Kling AI и Pollinations AI).
+🌐 **Читать на:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | **🇷🇺 Русский** | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🛠️ Основные возможности
-*   **Cinema Generator Pro:** Выбор анаморфотных или сферических объективов, реальных камер (например, IMAX, ARRI), схем освещения и визуальных стилей на основе легендарных режиссеров.
-*   **Script Writer Pro:** Создание технических раскадровок (карточек кадров) из логлайна с контролем непрерывности сцен благодаря встроенной памяти персонажей.
-*   **ZEO 4 Cinema Studio:** Специализированный модуль для анимации кадров и построения 3D-траекторий движения камер (Pan, Tilt, Zoom, Roll), компилируемых в точные JSON-данные и CLI-команды.
-*   **Интеграция Pollinations AI:** Визуализация в реальном времени с использованием модели Flux для предварительного просмотра созданных промптов прямо в интерфейсе программы.
+## 🎯 Видение
+
+Непоследовательность - величайший враг в генеративных моделях. Studio Pro Suite разработана как автоматизированный 'Script Supervisor'. Нашей инженерной целью было изолировать детерминированные переменные и заставить их работать как неизменные директивы. Результат - строгий эстетический компилятор для идеальной кинематографической непрерывности.
+
+> [!NOTE]
+> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
 
 ---
 
-## ⚙️ Установка и запуск
+## 📸 Interface / Ergonomics
 
-### Локальный запуск для разработки
-1. Убедитесь, что у вас установлен Node.js.
-2. Откройте терминал в папке проекта.
-3. Запустите скрипт запуска:
-   ```bash
-   ./Iniciar_StudioPro.command
-   ```
-   *(При необходимости предварительно предоставьте права на исполнение командой `chmod +x Iniciar_StudioPro.command`)*.
-4. Приложение автоматически откроется в вашем браузере по адресу `http://localhost:5175`.
+![Desktop Interface](docs/screenshots/screenshot-Desktop.png)
+
 
 ---
 
-## 🖥️ Технологический стек
-*   **Интерфейс:** React 19, Vite 8, Tailwind CSS с премиальным темным дизайном в стиле glassmorphism.
-*   **Оболочка десктопа:** Контейнеризация на Electron для создания нативных настольных приложений.
+## ⚙️ Мастер-класс параметров
+
+- **Детерминированное оборудование**: Выбор 'IMAX' вызывает компрессию кадра и глубину резкости 70-мм пленки.
+- **Инъекция авторства**: Симулирует стиль гениев кино (например, Wes Anderson для симметрии).
+- **Строгий контроль соотношения сторон**: Изменяет геометрическую композицию модели.
+- **Script Writer Pro**: База данных для сохранения непрерывности между кадрами.
+- **ZEO-4 TTS**: Преобразует текст в озвучку с естественной интонацией.
 
 ---
 
-## 📖 Документация и ссылки
-*   Многоязычное руководство пользователя (PDF): **[manual.pdf](./manual.pdf)**
-*   Основное руководство в формате Markdown: **[manual_master.md](./manual_master.md)**
+## 🛡️ Архитектура экранирования
+
+Экранирование:
+
+• Anti-Flood: Блокировка всплесков запросов.
+• Magic Bytes: Гексадецимальная проверка файлов.
+• 2 GB Limit: Защита оперативной памяти.
 
 ---
 
-## ⚖️ Лицензия и авторские права
-*   **Владелец:** Создано **produktes-code** и распространяется на условиях лицензии Creative Commons **CC BY-NC-SA 4.0** (Атрибуция — Некоммерческое использование — С сохранением условий 4.0 Всемирная).
+## 🚀 Техническое развертывание
+
+Архитектура 'Zero-Friction':
+
+• macOS: Gatekeeper заблокирует файл. Решение: 'Правый клик -> Открыть'.
+• Windows: Автоматическая конфигурация PATH.
+
+---
+
+## 📚 Документация и руководства
+
+Загрузите наше официальное руководство:
+
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
 
 
-## Security & Limits
-- **Rate limiting:** API endpoints are protected to prevent abuse.
-- **Magic Bytes:** File uploads are verified via magic bytes analysis.
-- **Upload limits:** Maximum file size is 2 GB.
+---
 
-## License
-Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
+## ⚖️ Инженерный манифест
+
+Разработано produktes-code и Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
 
 
-⚠️ Предупреждение для пользователей macOS: При первом открытии приложения macOS может показать предупреждение безопасности. Решение: щелкните правой кнопкой мыши на приложении и выберите "Открыть", затем нажмите "Открыть" в диалоговом окне. Если оно уже заблокировано, перейдите в Системные настройки > Конфиденциальность и безопасность и нажмите "Все равно открыть".
 
+⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".

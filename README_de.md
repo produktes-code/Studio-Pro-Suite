@@ -2,71 +2,82 @@
   <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Studio Pro Suite Logo" />
 </p>
 
-<h1 align="center">Studio Pro Suite (DE)</h1>
+<h1 align="center">Studio Pro Suite V1.0.0</h1>
 
 <p align="center">
-  <b>Das ultimative Ökosystem für KI-Kinoerstellung und parametrische Kameraautomatisierung</b><br/>
+  <b>The Ultimate AI Cinematic Creation & Parametric Camera Automation Ecosystem</b><br/>
+  <i>El Ecosistema Definitivo de Creación Cinematográfica IA y Automatización de Cámara Paramétrica</i>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge" alt="Version 1.0.0" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="Lizenz" />
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
 
----
-
-## 🎯 Überblick
-**Studio Pro Suite** ist eine hochmoderne parametrische Prompt-Generierungs-Engine und ein Layout-Manager für die narrative Vorproduktion, der für professionelle Kameraleute, Filmregisseure und generative KI-Prompt-Designer entwickelt wurde. Es fungiert als präziser Compiler, der abstrakte kinematografische Absichten in mathematisch und physisch genaue Befehle für moderne Video- und Bildgenerierungs-Engines (wie Sora, Veo, Runway, Kling AI und Pollinations AI) übersetzt.
+🌐 **Lesen Sie dies auf:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | **🇩🇪 Deutsch** | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🛠️ Hauptmerkmale
-*   **Cinema Generator Pro:** Wählen Sie anamorphotische oder sphärische Objektive, reale Kameragehäuse (z. B. IMAX, ARRI), Beleuchtungs-Setups und visuelle Stile legendärer Filmemacher.
-*   **Script Writer Pro:** Erstellen Sie technische Szenen-Breakdowns (Shot Cards) aus einer Logline und verwalten Sie die visuelle Kontinuität über den integrierten Charakterspeicher.
-*   **ZEO 4 Cinema Studio:** Ein spezialisiertes Modul zum Animieren von Aufnahmen und Generieren von 3D-Kamerabahnen (Pan, Tilt, Zoom, Roll), kompilliert in präzise JSON-Payloads und CLI-Befehle.
-*   **Pollinations AI-Integration:** Echtzeit-Rendering über das Flux-Modell zur Vorschau der generierten Prompts direkt in der Anwendung.
+## 🎯 Die Vision (Einführung)
+
+Inkonsistenz ist der größte Feind bei generativen Modellen. Studio Pro Suite wurde als automatisierter 'Script Supervisor' entwickelt. Unser technisches Ziel war es, deterministische Variablen (Optik, Format) zu isolieren und sie bei jedem API-Aufruf als unveränderliche Direktiven zu erzwingen. Das Ergebnis ist ein strenger Ästhetik-Compiler für perfekte filmische Kontinuität.
+
+> [!NOTE]
+> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
 
 ---
 
-## ⚙️ Installation und Einrichtung
+## 📸 Interface / Ergonomics
 
-### Lokale Ausführung (Entwicklung)
-1. Stellen Sie sicher, dass Node.js installiert ist.
-2. Öffnen Sie ein Terminal im Projektordner.
-3. Starten Sie das Skript:
-   ```bash
-   ./Iniciar_StudioPro.command
-   ```
-   *(Geben Sie dem Skript bei Bedarf Ausführungsrechte mit `chmod +x Iniciar_StudioPro.command`)*.
-4. Die Anwendung öffnet sich automatisch in Ihrem Webbrowser unter `http://localhost:5175`.
+![Desktop Interface](docs/screenshots/screenshot-Desktop.png)
+
 
 ---
 
-## 🖥️ Technologie-Stack
-*   **Schnittstelle:** React 19, Vite 8, Tailwind CSS mit einem Premium Dark-Theme Glassmorphism Design.
-*   **Desktop-Shell:** Electron-Wrapper für die Erstellung nativer Desktop-Anwendungen.
+## ⚙️ Parameter Masterclass
+
+- **Deterministische Hardware**: Die Auswahl von 'IMAX MSM 9802' induziert die expansive Schusskompression und die mit 70-mm-Film verbundene Schärfentiefe.
+- **Autorschaft-Injektion**: Simuliert die Gehirne von Filmgenies (z.B. Safdie Brothers für Neon/Chaos, Wes Anderson für Symmetrie).
+- **Strenge Kontrolle des Seitenverhältnisses**: Verändert die vom generativen Netzwerk angenommene geometrische Komposition.
+- **Script Writer Pro**: Lokale Datenbank zur Wahrung der Kontinuität zwischen den Aufnahmen.
+- **ZEO-4 TTS**: Wandelt Rohtext in Voiceovers mit natürlicher Intonation um.
 
 ---
 
-## 📖 Dokumentation und Links
-*   Mehrsprachiges Benutzerhandbuch (PDF): **[manual.pdf](./manual.pdf)**
-*   Handbuch im Markdown-Format: **[manual_master.md](./manual_master.md)**
+## 🛡️ Abschirmarchitektur
+
+Systemabstürze sind Kapitalverlust. Shielding:
+
+• Anti-Flood: Middlewares blockieren Spitzen.
+• Magic Bytes: Hexadezimale Überprüfung der Header-Integrität.
+• RAM-Sanity (2 GB Limit): Schutz vor OOM-Attacken.
 
 ---
 
-## ⚖️ Lizenz und Urheberrecht
-*   **Eigentümer:** Erstellt von **produktes-code** und lizenziert unter Creative Commons **CC BY-NC-SA 4.0** (Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International).
+## 🚀 Technische Bereitstellung
+
+Zeit für Abhängigkeiten ist in der Produktion verschwendet. 'Zero-Friction'-Architektur:
+
+• macOS: Gatekeeper wird die Binärdatei unter Quarantäne stellen (fehlendes Bezahlzertifikat). Ingenieurslösung: 'Rechtsklick -> Öffnen'. Standard bei Open Source.
+• Windows: Automatische PATH-Konfiguration.
+
+---
+
+## 📚 Dokumentation & Handbücher
+
+Laden Sie unser offizielles Handbuch herunter:
+
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
 
 
-## Security & Limits
-- **Rate limiting:** API endpoints are protected to prevent abuse.
-- **Magic Bytes:** File uploads are verified via magic bytes analysis.
-- **Upload limits:** Maximum file size is 2 GB.
+---
 
-## License
-Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
+## ⚖️ Engineering Manifesto & Credits
+
+Entwickelt von produktes-code und Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
 
 
-⚠️ Hinweis für macOS-Benutzer: Beim ersten Öffnen der Anwendung zeigt macOS möglicherweise eine Sicherheitswarnung an. Lösung: Klicken Sie mit der rechten Maustaste auf die Anwendung und wählen Sie "Öffnen", dann klicken Sie im Dialog auf "Öffnen". Falls sie bereits blockiert wurde, gehen Sie zu Systemeinstellungen > Datenschutz & Sicherheit und klicken Sie auf "Trotzdem öffnen".
 
+⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".

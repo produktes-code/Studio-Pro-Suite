@@ -2,71 +2,82 @@
   <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Studio Pro Suite Logo" />
 </p>
 
-<h1 align="center">Studio Pro Suite (JA)</h1>
+<h1 align="center">Studio Pro Suite V1.0.0</h1>
 
 <p align="center">
-  <b>究極のAIシネマティック生成＆パラメトリックカメラ自動化エコシステム</b><br/>
+  <b>The Ultimate AI Cinematic Creation & Parametric Camera Automation Ecosystem</b><br/>
+  <i>El Ecosistema Definitivo de Creación Cinematográfica IA y Automatización de Cámara Paramétrica</i>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-v1.0.0-blue?style=for-the-badge" alt="バージョン 1.0.0" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="ステータス" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="ライセンス" />
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
 
----
-
-## 🎯 概要
-**Studio Pro Suite** は、プロの撮影監督、映画監督、および生成AIプロンプトエンジニア向けに設計された、最先端のパラメトリックプロンプト生成エンジンおよびナラティブプリプロダクションレイアウトマネージャーです。抽象的な映画の意図を、最新のビデオおよび画像生成エンジン（Sora、Veo、Runway、Kling AI、Pollinations AIなど）向けに、数学的かつ物理的に正確なパラメータに変換する精密なコンパイラとして機能します。
+🌐 **他の言語で読む:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | **🇯🇵 日本語** | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🛠️ 主な機能
-*   **Cinema Generator Pro:** アナモルフィックレンズまたは球面レンズ、実際のカメラボディ（IMAX、ARRIなど）、照明設定、および伝説的な映画監督に基づくビジュアルスタイルを選択。
-*   **Script Writer Pro:** ログラインからテクニカルなシーンブレイクダウン（ショットカード）を構築し、内蔵のキャラクターメモリによって視覚的な一貫性を管理。
-*   **ZEO 4 Cinema Studio:** ショットのアニメーションと3Dカメラ軌道（パン、ティルト、ズーム、ロール）の生成に特化したモジュール。精密なJSONデータとCLIコマンドにコンパイル。
-*   **Pollinations AI 統合:** Fluxモデルによるリアルタイムレンダリングで、アプリケーションから離れることなく生成されたプロンプトをプレビュー。
+## 🎯 ビジョン（はじめに）
+
+生成モデルの時代において、不整合は最大の敵です。Studio Pro Suiteは、自動化された「スクリプトスーパーバイザー」として設計されました。私たちのエンジニアリングの目標は、決定論的変数（光学、フォーマット）を分離し、すべてのAPI呼び出しで絶対的な指令として強制することでした。
+
+> [!NOTE]
+> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
 
 ---
 
-## ⚙️ インストールとセットアップ
+## 📸 Interface / Ergonomics
 
-### ローカル開発環境での実行
-1. Node.jsがインストールされていることを確認します。
-2. プロジェクトディレクトリでターミナルを開きます。
-3. 起動スクリプトを実行します：
-   ```bash
-   ./Iniciar_StudioPro.command
-   ```
-   *(必要に応じて、事前に `chmod +x Iniciar_StudioPro.command` で実行権限を付与してください)*。
-4. アプリケーションが自動的にデフォルトブラウザ（`http://localhost:5175`）で開きます。
+![Desktop Interface](docs/screenshots/screenshot-Desktop.png)
+
 
 ---
 
-## 🖥️ 技術スタック
-*   **インターフェース:** React 19、Vite 8、Tailwind CSS。プレミアムなダークテーマのグラスモフィズムデザイン。
-*   **デスクトップシェル:** ネイティブデスクトップアプリを構築するためのElectronラッパー。
+## ⚙️ パラメーターマスタークラス（機能）
+
+- **決定論的ハードウェア**：「IMAX」を選択すると、70mmフィルムに関連するショット圧縮と被写界深度が誘発されます。
+- **作者の注入**：映画の天才のスタイルをシミュレートします（対称性のためのウェスアンダーソンなど）。
+- **厳密なアスペクト比制御**：モデルが想定する幾何学的構成を変更します。
+- **Script Writer Pro**：ショット間の連続性を維持するためのデータベース。
+- **ZEO-4 TTS**：テキストを自然なイントネーションのナレーションに変換します。
 
 ---
 
-## 📖 ドキュメントとリンク
-*   多言語ユーザーマニュアル (PDF): **[manual.pdf](./manual.pdf)**
-*   Markdown版マニュアル: **[manual_master.md](./manual_master.md)**
+## 🛡️ シールドアーキテクチャ（セキュリティ）
+
+防御装甲：
+
+• アンチフラッド：リクエストのスパイクを制限します。
+• マジックバイト：16進ヘッダーの検証。
+• RAM制限（2 GB）：OOM攻撃を防ぎます。
 
 ---
 
-## ⚖️ ライセンスとクレジット
-*   **所有者:** **produktes-code** によって作成され、クリエイティブ・コモンズ **CC BY-NC-SA 4.0**（表示 - 非営利 - 継承 4.0 国際）ライセンスの下で配布されています。
+## 🚀 技術展開（インストール）
+
+ゼロフリクションアーキテクチャ：
+
+• macOS：Gatekeeperがバイナリを隔離します。エンジニアの解決策：「右クリック->開く」。
+• Windows：自動PATH構成。
+
+---
+
+## 📚 ドキュメントとマニュアル
+
+公式マニュアルをダウンロードしてください：
+
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
 
 
-## Security & Limits
-- **Rate limiting:** API endpoints are protected to prevent abuse.
-- **Magic Bytes:** File uploads are verified via magic bytes analysis.
-- **Upload limits:** Maximum file size is 2 GB.
+---
 
-## License
-Licensed under CC BY-NC-SA 4.0. Creado por produktes-code.
+## ⚖️ エンジニアリングマニフェスト、クレジット、ライセンス
+
+produktes-codeとJesus Ferrer（CHUS BZN）によって開発されました。 CC BY-NC-SA 4.0。 企業標準。
 
 
-⚠️ macOSユーザーへの注意：アプリケーションを初めて開くとき、macOSがセキュリティ警告を表示する場合があります。解決方法：アプリケーションを右クリックして「開く」を選択し、ダイアログで「開く」をクリックします。既にブロックされている場合は、システム設定 > プライバシーとセキュリティに移動し、「このまま開く」をクリックします。
 
+⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".
