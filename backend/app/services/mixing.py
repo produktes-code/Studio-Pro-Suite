@@ -10,6 +10,36 @@ logger = logging.getLogger("studio_pro_suite")
 class MixingService:
     def __init__(self):
         os.makedirs(settings.TEMP_DIR, exist_ok=True)
+        # Inicializar el servicio de análisis para E4
+        try:
+            from app.services.analysis import AnalysisService
+            self.analyzer = AnalysisService()
+        except ImportError:
+            self.analyzer = None
+
+    def safe_analyze_track(self, filepath: str, timeout: int = 30) -> dict:
+        """
+        Calls AnalysisService with a ThreadPoolExecutor and timeout 
+        to prevent deadlocks if the analysis service is busy/hanging.
+        """
+        if not self.analyzer:
+            return {"bpm": 120.0, "key": "C", "error": "Analyzer not available"}
+            
+        import concurrent.futures
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(self.analyzer.analyze_audio, filepath)
+        try:
+            result = future.result(timeout=timeout)
+            executor.shutdown(wait=False)
+            return result
+        except concurrent.futures.TimeoutError:
+            logger.error(f"Analysis timed out for {filepath} after {timeout}s (Service Deadlock prevented)")
+            executor.shutdown(wait=False)
+            return {"bpm": 120.0, "key": "C", "error": "timeout"}
+        except Exception as e:
+            logger.error(f"Analysis failed: {e}")
+            executor.shutdown(wait=False)
+            return {"bpm": 120.0, "key": "C", "error": str(e)}
 
     def mix_tracks(self, tracks: List[Dict[str, Any]]) -> str:
         """
