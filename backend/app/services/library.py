@@ -11,6 +11,24 @@ class LibraryService:
     def __init__(self):
         self.db_path = os.path.join(settings.TEMP_DIR, "library.json")
         self._init_db()
+        self._scan_cache = {}
+
+    def scan_directory(self, directory: str) -> List[str]:
+        """
+        E18: Scans a directory for .wav files, caching the result in memory to avoid 
+        repeated slow disk scans via os.walk.
+        """
+        if directory in self._scan_cache:
+            return self._scan_cache[directory]
+            
+        wav_files = []
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                if file.lower().endswith(".wav"):
+                    wav_files.append(os.path.join(root, file))
+                    
+        self._scan_cache[directory] = wav_files
+        return wav_files
 
     def _init_db(self):
         if not os.path.exists(self.db_path):
