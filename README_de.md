@@ -56,17 +56,22 @@ Systemabstürze sind Kapitalverlust. Shielding:
 
 ---
 
-## 🚀 Technische Bereitstellung
+## 🚀 Technische Bereitstellung & CI/CD Installation
 
-Zeit für Abhängigkeiten ist in der Produktion verschwendet. 'Zero-Friction'-Architektur kompilliert DSP und Python direkt.
+Um absolute mathematische Genauigkeit zu garantieren und unsere High-End-Python-DSP-Architektur zu erhalten, ohne die plattformübergreifende Kompatibilität zu beeinträchtigen, verwenden wir nun **Automatisierte CI/CD über GitHub Actions**.
+Anstelle einer lokalen `.exe`-Paketierung wird unser Quellcode in reinen Windows- und macOS-Umgebungen in der Cloud nativ kompiliert.
+
+#### Herunterladen und Installieren
+1. Navigieren Sie zum Bereich **[Releases](https://github.com/produktes-code/Studio-Pro-Suite/releases)** dieses Repositories.
+2. Laden Sie den neuesten automatisierten Build für Ihr Betriebssystem herunter:
+   - `Studio Pro Suite Setup.exe` (Windows)
+   - `Studio Pro Suite.dmg` (macOS)
 
 ### 🍎 macOS-Benutzer (Gatekeeper)
-Gatekeeper wird die Binärdatei unter Quarantäne stellen (fehlendes Bezahlzertifikat). Ingenieurslösung: **Rechtsklick -> Öffnen** (nicht doppelklicken).
+Da ein kostenpflichtiges Apple-Entwicklerzertifikat fehlt, wird Gatekeeper die Binärdatei unter Quarantäne stellen. Die legitime lokale Umgehung ist **Rechtsklick auf die App -> Öffnen** (nicht doppelklicken). Dies ist der Standardablauf bei Open-Source-Software.
 
 ### 🪟 Windows-Benutzer (SmartScreen)
-Windows Defender zeigt möglicherweise einen blauen Warnbildschirm beim `.exe` an. Klicken Sie auf **'Weitere Informationen'** und dann auf **'Trotzdem ausführen'**.
-
----
+Windows Defender zeigt möglicherweise einen blauen Warnbildschirm beim Ausführen des `.exe`-Installationsprogramms an. Klicken Sie auf **'Weitere Informationen'** und dann auf **'Trotzdem ausführen'**.
 
 ## 📚 Dokumentation & Handbücher
 

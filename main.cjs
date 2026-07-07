@@ -13,8 +13,8 @@ function createWindow() {
         height: 900,
         backgroundColor: '#09090b', // Studio Pro Suite bg color
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false
+            nodeIntegration: false,
+            contextIsolation: true
         },
         title: 'Studio Pro AI Suite 3.0',
     });
@@ -30,10 +30,11 @@ function createWindow() {
 app.whenReady().then(() => {
     // Start Python Backend
     let backendPath;
+    const backendExecutableName = process.platform === 'win32' ? 'studio_pro_backend.exe' : 'studio_pro_backend';
     if (app.isPackaged) {
-        backendPath = path.join(process.resourcesPath, 'backend-dist', 'studio_pro_backend');
+        backendPath = path.join(process.resourcesPath, 'backend-dist', backendExecutableName);
     } else {
-        backendPath = path.join(__dirname, 'backend-dist', 'studio_pro_backend');
+        backendPath = path.join(__dirname, 'backend-dist', backendExecutableName);
     }
     
     console.log("Starting backend at:", backendPath);

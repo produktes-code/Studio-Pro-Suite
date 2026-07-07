@@ -56,9 +56,16 @@ In Retail and Enterprise deployment, a system crash is not a bug; it is capital 
 
 ---
 
-## 🚀 Technical Deployment (Installation)
+### 🚀 Technical Deployment & CI/CD Installation
 
-The deployment process responds to an industry imperative: in production, time spent configuring dependencies is time wasted. We packaged a 'Zero-Friction' architecture compiling DSP libraries, Python binaries, and renderers directly into the application's core.
+To guarantee absolute mathematical accuracy and preserve our high-end Python DSP architecture without compromising cross-platform compatibility, we now employ **Automated CI/CD via GitHub Actions**. 
+Instead of local `.exe` packaging, our source code is natively compiled on pure Windows and macOS environments in the cloud.
+
+#### How to Download and Install
+1. Navigate to the **[Releases](https://github.com/produktes-code/Studio-Pro-Suite/releases)** section of this repository.
+2. Download the latest automated build for your Operating System:
+   - `Studio Pro Suite Setup.exe` (Windows)
+   - `Studio Pro Suite.dmg` (macOS)
 
 ### 🍎 macOS Users (Gatekeeper)
 Lacking a paid Apple developer certificate, Gatekeeper will quarantine the binary. As engineers, the legitimate local bypass is to **Right-click the app -> Open** (do not double-click). It is the standard flow of high-performance open-source software.

@@ -38,3 +38,8 @@ dist-electron
 # macOS
 __MACOSX/
 Thumbs.db
+backend-dist/
+backend/venv/
+backend/build/
+dist-electron/
+backend-dist/

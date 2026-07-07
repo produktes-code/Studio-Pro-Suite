@@ -1,0 +1,60 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install Python Dependencies & Package Backend
+        run: |
+          cd backend
+          python -m venv venv
+          # Windows uses \Scripts\, Mac uses /bin/
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            source venv/Scripts/activate
+          else
+            source venv/bin/activate
+          fi
+          pip install -r requirements.txt
+          pip install pyinstaller
+          pyinstaller --name studio_pro_backend --distpath ../backend-dist --onefile run.py
+        shell: bash
+        
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Build Electron App
+        run: if [ "$RUNNER_OS" == "Windows" ]; then
+            npm run pack:win
+          else
+            npm run pack:mac
+          fi
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-${{ matrix.os }}
+          path: |
+            dist-electron/*.exe
+            dist-electron/*.dmg

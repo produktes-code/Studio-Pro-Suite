@@ -11,19 +11,21 @@
     "preview": "vite preview",
     "electron:start": "cross-env DEV_SERVER_URL=http://localhost:5173 electron .",
     "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:5173 && npm run electron:start\"",
-    "pack:all": "vite build && electron-builder --mac --win"
+    "pack:mac": "vite build && electron-builder --mac",
+    "pack:win": "vite build && electron-builder --win"
   },
   "build": {
     "appId": "com.produktes.studioprosuite",
     "productName": "Studio Pro Suite",
+    "files": [
+      "**/*",
+      "!backend/venv/**"
+    ],
     "mac": {
       "target": [
         "dmg"
       ],
-      "icon": "build/icon.icns",
-      "extraResources": [
-        "backend-dist/**/*"
-      ]
+      "icon": "build/icon.icns"
     },
     "win": {
       "target": [
@@ -38,7 +40,10 @@
     },
     "directories": {
       "output": "dist-electron"
-    }
+    },
+    "extraResources": [
+      "backend-dist/**/*"
+    ]
   },
   "dependencies": {
     "lucide-react": "^1.17.0",
