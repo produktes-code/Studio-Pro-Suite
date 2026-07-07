@@ -31,7 +31,7 @@ class SamplerService:
             if len(data.shape) == 2:
                 data = np.mean(data, axis=1)
 
-            # 1. Pitch shifting using linear interpolation resampling
+            # 1. Pitch shifting using scipy.signal.resample (Fourier method with implicit antialiasing filter) - E15
             pitch_factor = 2.0 ** ((midi_note - base_note) / 12.0)
             orig_len = len(data)
             pitched_len = int(orig_len / pitch_factor)
@@ -39,10 +39,8 @@ class SamplerService:
             if pitched_len <= 10:
                 raise ValueError("Pitch shift resulted in too short of a sample")
 
-            x_orig = np.arange(orig_len)
-            x_new = np.linspace(0, orig_len - 1, pitched_len)
-            interpolator = interp1d(x_orig, data, kind='linear', fill_value="extrapolate")
-            pitched_data = interpolator(x_new)
+            import scipy.signal
+            pitched_data = scipy.signal.resample(data, pitched_len)
 
             # 2. ADSR Envelope generation
             total_duration_sec = gate_time_sec + release_sec
