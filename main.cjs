@@ -42,11 +42,52 @@ app.whenReady().then(() => {
         backendProcess = spawn(backendPath, { stdio: 'pipe' });
         backendProcess.stdout.on('data', (data) => console.log(`Backend: ${data}`));
         backendProcess.stderr.on('data', (data) => console.error(`Backend Error: ${data}`));
+        backendProcess.on('error', (err) => {
+            const { dialog } = require('electron');
+            dialog.showErrorBox('Servicio backend no disponible', `El backend falló al iniciar: ${err.message}`);
+        });
     } catch (err) {
         console.error("Failed to start backend:", err);
     }
 
     createWindow();
+
+    const checkHealth = async (retries = 10) => {
+        try {
+            const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args)).catch(() => require('http').get(...args)); // Using http or fetch
+            // Basic http get for health check to avoid fetch dependency issues in CommonJS
+            return new Promise((resolve, reject) => {
+                const http = require('http');
+                const req = http.get('http://127.0.0.1:8001/health', (res) => {
+                    if (res.statusCode === 200) {
+                        resolve(true);
+                    } else {
+                        resolve(false);
+                    }
+                });
+                req.on('error', () => resolve(false));
+                req.end();
+            });
+        } catch (e) {
+            return false;
+        }
+    };
+
+    const waitForBackend = async () => {
+        let isHealthy = false;
+        for (let i = 0; i < 15; i++) {
+            isHealthy = await checkHealth();
+            if (isHealthy) break;
+            await new Promise(res => setTimeout(res, 1000));
+        }
+        if (!isHealthy) {
+            if (mainWindow) {
+                mainWindow.loadURL('data:text/html;charset=utf-8,<html><body style="background-color:#09090b;color:white;display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;"><h1>Servicio backend no disponible</h1><p>No se pudo conectar al motor de Python.</p></body></html>');
+            }
+        }
+    };
+    
+    waitForBackend();
 });
 
 app.on('window-all-closed', () => {

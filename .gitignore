@@ -43,3 +43,4 @@ backend/venv/
 backend/build/
 dist-electron/
 backend-dist/
+backend/venv/
