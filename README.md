@@ -58,8 +58,14 @@ In Retail and Enterprise deployment, a system crash is not a bug; it is capital 
 
 ### 🚀 Technical Deployment & CI/CD Installation
 
-To guarantee absolute mathematical accuracy and preserve our high-end Python DSP architecture without compromising cross-platform compatibility, we now employ **Automated CI/CD via GitHub Actions**. 
+We employ **Automated CI/CD via GitHub Actions**. 
 Instead of local `.exe` packaging, our source code is natively compiled on pure Windows and macOS environments in the cloud.
+
+#### 🛠️ Local Development (Important)
+If you are developing locally, running `npm start` or `npm run electron:dev` will only launch the Electron frontend. The backend will NOT start automatically, which will result in a connection error.
+To run the full stack in development mode:
+1. Ensure you have Python installed and dependencies from `backend/requirements.txt` installed.
+2. Run `npm run dev:full` which starts both the Vite/Electron frontend and the Python backend simultaneously.
 
 #### How to Download and Install
 1. Navigate to the **[Releases](https://github.com/produktes-code/Studio-Pro-Suite/releases)** section of this repository.
