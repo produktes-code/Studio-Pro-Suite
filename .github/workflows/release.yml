@@ -61,7 +61,7 @@ jobs:
           fi
         shell: bash
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH: never
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
