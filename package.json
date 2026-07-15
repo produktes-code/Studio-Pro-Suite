@@ -2,6 +2,7 @@
   "name": "studio-pro-suite",
   "private": true,
   "version": "1.0.0",
+  "repository": "https://github.com/produktes-code/Studio-Pro-Suite",
   "type": "module",
   "main": "main.cjs",
   "scripts": {
