@@ -13,8 +13,8 @@
     "electron:start": "cross-env DEV_SERVER_URL=http://localhost:5173 electron .",
     "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"wait-on http://localhost:5173 && npm run electron:start\"",
     "dev:full": "concurrently -k \"cd backend && python3 run.py\" \"npm run electron:dev\"",
-    "pack:mac": "vite build && electron-builder --mac",
-    "pack:win": "vite build && electron-builder --win"
+    "pack:mac": "vite build && electron-builder --mac --publish never",
+    "pack:win": "vite build && electron-builder --win --publish never"
   },
   "build": {
     "appId": "com.produktes.studioprosuite",
