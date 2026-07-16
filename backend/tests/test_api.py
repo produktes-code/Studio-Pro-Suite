@@ -5,16 +5,21 @@ Verifica: health check, modelos Pydantic, CORS, rate limiting, estructura de end
 import sys
 import os
 import json
+from unittest.mock import MagicMock
+
+# Stub sounddevice antes de cualquier importación de app o servicios
+_sd_stub = MagicMock(name="sounddevice")
+_sd_stub.query_devices.return_value = []
+sys.modules["sounddevice"] = _sd_stub
+
 import pytest
 from fastapi.testclient import TestClient
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 # Añadir el directorio backend al path
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'app'))
 
-# Patch sounddevice antes de importar la app (evita dependencia de hardware de audio)
-with patch('sounddevice.query_devices', return_value=[]):
-    from main import app, limiter, settings
+from main import app, limiter, settings
 
 client = TestClient(app)
 

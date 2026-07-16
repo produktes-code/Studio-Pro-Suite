@@ -18,6 +18,9 @@
 
 🌐 **Read this in:** **🇬🇧 English** | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
+> [!NOTE]
+> **Roadmap:** la internacionalización (i18n) del frontend está preparada en `src/locales/` pero aún no está integrada en los componentes de la interfaz de usuario.
+
 ---
 
 ## 🎯 The Vision (Introduction)
