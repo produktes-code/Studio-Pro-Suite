@@ -1,4 +1,4 @@
-import os
+import os, secrets
 from typing import List
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     ALLOWED_ORIGINS: str = Field(default="*")
     MAX_UPLOAD_SIZE: int = Field(default=2147483648)  # 2GB in bytes
     TEMP_DIR: str = Field(default="")
-    SECRET_KEY: str = Field(default="studio_pro_suite_audio_secret_key_2026")
+    SECRET_KEY: str = Field(default_factory=lambda: secrets.token_urlsafe(32))
     ENV: str = Field(default="development")
 
     model_config = SettingsConfigDict(
@@ -15,6 +15,10 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
         extra="ignore"
     )
+
+    def model_post_init(self, __context):
+        if self.ENV.lower() == "production" and "SECRET_KEY" not in os.environ:
+            raise ValueError("SECRET_KEY obligatoria en producción (openssl rand -hex 32)")
 
     def get_allowed_origins(self) -> List[str]:
         if not self.ALLOWED_ORIGINS:
