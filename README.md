@@ -26,6 +26,15 @@
 
 ## 🎯 The Vision (Introduction)
 
+### Requisitos Previos
+
+- Python 3.11 o superior
+- Node.js 20 o superior
+- **FFmpeg**: Obligatorio para el procesamiento de audio. Debes instalarlo en tu sistema y asegurarte de que esté en el PATH.
+  - Mac: `brew install ffmpeg`
+  - Ubuntu/Debian: `sudo apt install ffmpeg`
+  - Windows: Descargar desde la web oficial y añadir a Variables de Entorno.
+
 Inconsistency is the greatest enemy in the era of generative models. A user generates an excellent shot, but the reverse shot loses all art direction or the wardrobe changes color. This is unacceptable in professional production. We conceived Studio Pro Suite not just as a generator, but as an automated 'Script Supervisor' and an Art Directors simulator. Our engineering goal was to isolate deterministic variables (Optics, Format, Authorship) and force them as absolute immutable directives in every API call. The result is the most rigorous aesthetic compiler on the market, built for prompt engineers who demand perfect cinematic continuity.
 
 > [!NOTE]

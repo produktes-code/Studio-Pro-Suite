@@ -13,7 +13,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [macos-latest, windows-latest, ubuntu-latest]
     runs-on: ${ matrix.os }
     steps:
       - uses: actions/checkout@v4
@@ -22,19 +22,27 @@ jobs:
           node-version: '20'
       - run: npm ci || npm install
       - run: npm run build --if-present
-      - run: npx electron-builder --${ matrix.os == 'macos-latest' && 'mac' || 'win' } --publish never
+      - run: npx electron-builder --${{ matrix.os == 'macos-latest' && 'mac' || matrix.os == 'windows-latest' && 'win' || 'linux' }} --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: ${ matrix.os }-build
           path: |
             */dist-electron/*.dmg
             */dist-electron/*.exe
+            */dist-electron/*.AppImage
+            */dist-electron/*.deb
             dist-electron/*.dmg
             dist-electron/*.exe
+            dist-electron/*.AppImage
+            dist-electron/*.deb
             */dist/*.dmg
             */dist/*.exe
+            */dist/*.AppImage
+            */dist/*.deb
             dist/*.dmg
             dist/*.exe
+            dist/*.AppImage
+            dist/*.deb
 
   publish:
     needs: build
@@ -57,5 +65,7 @@ jobs:
           files: |
             dist/**/*.dmg
             dist/**/*.exe
+            dist/**/*.AppImage
+            dist/**/*.deb
         env:
           GITHUB_TOKEN: ${ secrets.GITHUB_TOKEN }

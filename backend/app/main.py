@@ -53,6 +53,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+import shutil
+
+# Ensure FFmpeg is installed
+if not shutil.which("ffmpeg") and not os.path.exists(os.path.join(settings.TEMP_DIR, "..", "bin", "ffmpeg")):
+    logger.warning("FFmpeg no encontrado en el sistema. Studio Pro Suite requiere FFmpeg para el procesamiento de audio. Por favor, instálelo.")
+
 # Mount Temp Audio Directory to serve files statically
 os.makedirs(settings.TEMP_DIR, exist_ok=True)
 app.mount("/static", StaticFiles(directory=settings.TEMP_DIR), name="static")
