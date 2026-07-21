@@ -11,3 +11,4 @@ soundfile==0.12.1
 python-multipart>=0.0.31
 pydantic==2.7.4
 pydantic-settings==2.3.4
+httpx2>=2.7.0
