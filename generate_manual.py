@@ -1,8 +1,11 @@
-import os
-
 languages = {
-    'ES': 'Español', 'EN': 'English', 'DE': 'Deutsch', 
-    'UK': 'Українська', 'RU': 'Русский', 'ZH': '中文', 'JA': '日本語'
+    "ES": "Español",
+    "EN": "English",
+    "DE": "Deutsch",
+    "UK": "Українська",
+    "RU": "Русский",
+    "ZH": "中文",
+    "JA": "日本語",
 }
 
 sections = [
@@ -14,7 +17,7 @@ sections = [
     "6. Sistema multimodal (7 idiomas: ES, EN, DE, UK, RU, ZH, JA)",
     "7. Blindaje y seguridad (Rate limiting, Magic Bytes, 2GB, CORS)",
     "8. FAQ",
-    "9. Créditos y licencia (produktes-code, CC BY-NC-SA 4.0)"
+    "9. Créditos y licencia (produktes-code, CC BY-NC-SA 4.0)",
 ]
 
 content = "# USER MANUAL / MANUAL DE USUARIO\n\n"

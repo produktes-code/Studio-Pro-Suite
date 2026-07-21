@@ -7,6 +7,7 @@ import logging
 
 logger = logging.getLogger("studio_pro_suite")
 
+
 class LibraryService:
     def __init__(self):
         self.db_path = os.path.join(settings.TEMP_DIR, "library.json")
@@ -15,18 +16,18 @@ class LibraryService:
 
     def scan_directory(self, directory: str) -> List[str]:
         """
-        E18: Scans a directory for .wav files, caching the result in memory to avoid 
+        E18: Scans a directory for .wav files, caching the result in memory to avoid
         repeated slow disk scans via os.walk.
         """
         if directory in self._scan_cache:
             return self._scan_cache[directory]
-            
+
         wav_files = []
         for root, dirs, files in os.walk(directory):
             for file in files:
                 if file.lower().endswith(".wav"):
                     wav_files.append(os.path.join(root, file))
-                    
+
         self._scan_cache[directory] = wav_files
         return wav_files
 
@@ -49,9 +50,15 @@ class LibraryService:
         except Exception as e:
             logger.error(f"Error saving library JSON: {e}")
 
-    def add_track(self, filepath: str, filename: str, tags: List[str] = None, analysis: dict = None) -> dict:
+    def add_track(
+        self,
+        filepath: str,
+        filename: str,
+        tags: List[str] = None,
+        analysis: dict = None,
+    ) -> dict:
         db = self._load_db()
-        
+
         # Check if already exists by filepath
         for track in db["tracks"]:
             if track["filepath"] == filepath:
@@ -66,7 +73,7 @@ class LibraryService:
             "bpm": analysis.get("bpm") if analysis else None,
             "key": analysis.get("key") if analysis else None,
             "energy": analysis.get("energy") if analysis else None,
-            "energy_curve": analysis.get("energy_curve") if analysis else []
+            "energy_curve": analysis.get("energy_curve") if analysis else [],
         }
         db["tracks"].append(new_track)
         self._save_db(db)
@@ -87,7 +94,9 @@ class LibraryService:
 
         if tag:
             t_lower = tag.lower()
-            results = [t for t in results if any(t_lower == tg.lower() for tg in t["tags"])]
+            results = [
+                t for t in results if any(t_lower == tg.lower() for tg in t["tags"])
+            ]
 
         return results
 

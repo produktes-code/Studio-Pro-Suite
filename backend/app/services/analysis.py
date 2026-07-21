@@ -5,6 +5,7 @@ import logging
 
 logger = logging.getLogger("studio_pro_suite")
 
+
 class AnalysisService:
     def __init__(self):
         self.is_initialized = True
@@ -17,7 +18,7 @@ class AnalysisService:
             logger.info(f"Analyzing audio file: {filepath}")
             # Load with 22050 Hz sampling rate for performance
             y, sr = librosa.load(filepath, sr=22050)
-            
+
             if len(y) == 0:
                 raise ValueError("Loaded audio file is empty")
 
@@ -31,7 +32,7 @@ class AnalysisService:
             # 2. Key Detection (Chroma STFT Peak)
             chromagram = librosa.feature.chroma_stft(y=y, sr=sr)
             mean_chroma = np.mean(chromagram, axis=1)
-            notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+            notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
             key_idx = int(np.argmax(mean_chroma))
             key = notes[key_idx]
 
@@ -52,9 +53,11 @@ class AnalysisService:
                 "bpm": round(bpm, 1),
                 "key": key,
                 "energy": round(avg_energy, 2),
-                "energy_curve": [round(val * 1000, 2) for val in energy_curve]
+                "energy_curve": [round(val * 1000, 2) for val in energy_curve],
             }
-            logger.info(f"Analysis successful for {filepath}: BPM={result['bpm']}, Key={result['key']}")
+            logger.info(
+                f"Analysis successful for {filepath}: BPM={result['bpm']}, Key={result['key']}"
+            )
             return result
         except Exception as e:
             logger.error(f"Error analyzing audio: {e}")

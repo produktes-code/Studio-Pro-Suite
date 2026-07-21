@@ -8,28 +8,33 @@ import logging
 
 logger = logging.getLogger("studio_pro_suite")
 
+
 class MasteringService:
     def __init__(self):
         os.makedirs(settings.TEMP_DIR, exist_ok=True)
 
-    def apply_eq(self, samples: np.ndarray, sr: int, low_gain_db: float, high_gain_db: float) -> np.ndarray:
+    def apply_eq(
+        self, samples: np.ndarray, sr: int, low_gain_db: float, high_gain_db: float
+    ) -> np.ndarray:
         """
         Applies a simple 2-band EQ (Low shelf and High shelf) using scipy IIR filters.
         """
         out = samples.copy()
-        
+
         # Apply low shelf filter (cutoff at 200 Hz)
         if low_gain_db != 0:
             nyq = sr / 2.0
             cutoff = 200.0 / nyq
             gain_linear = 10 ** (low_gain_db / 20.0)
             if low_gain_db > 0:
-                b, a = signal.butter(1, cutoff, btype='lowpass')
+                b, a = signal.butter(1, cutoff, btype="lowpass")
                 out += (gain_linear - 1.0) * signal.lfilter(b, a, samples, axis=0)
             else:
                 # Cut low frequencies
-                b, a = signal.butter(1, cutoff, btype='highpass')
-                out = (1.0 - gain_linear) * signal.lfilter(b, a, samples, axis=0) + gain_linear * samples
+                b, a = signal.butter(1, cutoff, btype="highpass")
+                out = (1.0 - gain_linear) * signal.lfilter(
+                    b, a, samples, axis=0
+                ) + gain_linear * samples
 
         # Apply high shelf filter (cutoff at 5000 Hz)
         if high_gain_db != 0:
@@ -37,15 +42,25 @@ class MasteringService:
             cutoff = 5000.0 / nyq
             gain_linear = 10 ** (high_gain_db / 20.0)
             if high_gain_db > 0:
-                b, a = signal.butter(1, cutoff, btype='highpass')
+                b, a = signal.butter(1, cutoff, btype="highpass")
                 out += (gain_linear - 1.0) * signal.lfilter(b, a, samples, axis=0)
             else:
-                b, a = signal.butter(1, cutoff, btype='lowpass')
-                out = (1.0 - gain_linear) * signal.lfilter(b, a, samples, axis=0) + gain_linear * samples
+                b, a = signal.butter(1, cutoff, btype="lowpass")
+                out = (1.0 - gain_linear) * signal.lfilter(
+                    b, a, samples, axis=0
+                ) + gain_linear * samples
 
         return out
 
-    def apply_compressor(self, samples: np.ndarray, threshold_db: float = -12.0, ratio: float = 2.0, attack_ms: float = 10.0, release_ms: float = 100.0, sr: int = 44100) -> np.ndarray:
+    def apply_compressor(
+        self,
+        samples: np.ndarray,
+        threshold_db: float = -12.0,
+        ratio: float = 2.0,
+        attack_ms: float = 10.0,
+        release_ms: float = 100.0,
+        sr: int = 44100,
+    ) -> np.ndarray:
         """
         A simple dynamic compressor.
         """
@@ -93,7 +108,14 @@ class MasteringService:
 
         return out
 
-    def process_mastering(self, input_path: str, low_eq_db: float = 2.0, high_eq_db: float = 1.5, thresh_db: float = -12.0, ratio: float = 2.0) -> str:
+    def process_mastering(
+        self,
+        input_path: str,
+        low_eq_db: float = 2.0,
+        high_eq_db: float = 1.5,
+        thresh_db: float = -12.0,
+        ratio: float = 2.0,
+    ) -> str:
         """
         Loads an audio file, runs the mastering chain, normalizes loudness, and writes to WAV.
         """
@@ -104,12 +126,12 @@ class MasteringService:
             segment = AudioSegment.from_file(input_path)
             sr = segment.frame_rate
             channels = segment.channels
-            
+
             # Load samples into float32 array (-1.0 to 1.0)
             raw_data = np.array(segment.get_array_of_samples(), dtype=np.float32)
             max_val = 2 ** (segment.sample_width * 8 - 1)
             raw_data = raw_data / max_val
-            
+
             if channels == 2:
                 raw_data = raw_data.reshape((-1, 2))
 
@@ -117,7 +139,9 @@ class MasteringService:
             processed = self.apply_eq(raw_data, sr, low_eq_db, high_eq_db)
 
             # 2. Apply Compression
-            processed = self.apply_compressor(processed, threshold_db=thresh_db, ratio=ratio, sr=sr)
+            processed = self.apply_compressor(
+                processed, threshold_db=thresh_db, ratio=ratio, sr=sr
+            )
 
             # 3. Apply Peak Limiting (prevent clipping at -0.2 dBFS)
             limit = 10 ** (-0.2 / 20.0)  # ~0.977
@@ -134,7 +158,7 @@ class MasteringService:
                 int_samples.tobytes(),
                 frame_rate=sr,
                 sample_width=2,  # 16-bit
-                channels=channels
+                channels=channels,
             )
 
             # 5. Final loudness normalization using pydub

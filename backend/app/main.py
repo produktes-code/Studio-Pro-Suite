@@ -1,8 +1,7 @@
 import os
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Depends, Query, status, Request
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 from typing import List, Dict, Optional, Any
 
@@ -13,7 +12,7 @@ from slowapi.errors import RateLimitExceeded
 
 # Import config and security
 from app.core.config import settings
-from app.core.security import validate_uploaded_file, sanitize_filename
+from app.core.security import validate_uploaded_file
 
 # Import audio services
 from app.services.recording import RecordingService
@@ -38,7 +37,7 @@ limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(
     title="Studio Pro Audio Engine API",
     description="Backend API for Studio Pro Suite 3.0 audio workstation services",
-    version="1.0.0"
+    version="1.0.0",
 )
 
 app.state.limiter = limiter
@@ -68,14 +67,17 @@ synthesizer_service = SynthesizerService()
 analysis_service = AnalysisService()
 library_service = LibraryService()
 
+
 # --- Pydantic Request Models ---
 class TrackMixItem(BaseModel):
     filepath: str
     volume_db: float = 0.0
     pan: float = 0.0
 
+
 class MixRequest(BaseModel):
     tracks: List[TrackMixItem]
+
 
 class MasteringRequest(BaseModel):
     filepath: str
@@ -84,10 +86,12 @@ class MasteringRequest(BaseModel):
     threshold_db: float = -12.0
     ratio: float = 2.0
 
+
 class EffectRequest(BaseModel):
     filepath: str
     effect_type: str  # 'lowpass', 'highpass', 'delay', 'reverb', 'chorus'
     params: Dict[str, Any] = {}
+
 
 class SamplerRequest(BaseModel):
     sample_path: str
@@ -99,6 +103,7 @@ class SamplerRequest(BaseModel):
     release_sec: float = 0.2
     gate_time_sec: float = 1.0
 
+
 class SynthRequest(BaseModel):
     osc_type: str = "sine"
     frequency: float = 440.0
@@ -108,12 +113,15 @@ class SynthRequest(BaseModel):
     tremolo_rate: float = 0.0
     tremolo_depth: float = 0.0
 
+
 class TagRequest(BaseModel):
     track_id: str
     tag: str
 
+
 class PlaylistRequest(BaseModel):
     name: str
+
 
 class PlaylistAddRequest(BaseModel):
     playlist_name: str
@@ -128,6 +136,7 @@ def get_file_url(filepath: str) -> str:
 
 # --- API Routes ---
 
+
 @app.get("/health/ready")
 def health_ready():
     """
@@ -139,22 +148,23 @@ def health_ready():
         with open(test_file, "w") as f:
             f.write("OK")
         os.remove(test_file)
-        
+
         # Check if sounddevice can list devices without crashing
         import sounddevice as sd
+
         sd.query_devices()
 
         return {
             "status": "ready",
             "environment": settings.ENV,
             "temp_dir": settings.TEMP_DIR,
-            "portaudio": "sounddevice ok"
+            "portaudio": "sounddevice ok",
         }
     except Exception as e:
         logger.error(f"Health check failed: {e}")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=f"Service unavailable: {str(e)}"
+            detail=f"Service unavailable: {str(e)}",
         )
 
 
@@ -166,7 +176,7 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
     """
     # 1. Validate file (Size, Extension, MIME)
     sanitized_name = await validate_uploaded_file(file)
-    
+
     # 2. Write file
     filepath = os.path.join(settings.TEMP_DIR, sanitized_name)
     try:
@@ -187,7 +197,7 @@ async def upload_audio(request: Request, file: UploadFile = File(...)):
 
     # 4. Save to library
     track = library_service.add_track(filepath, sanitized_name, ["uploaded"], analysis)
-    
+
     # Add file URL to output
     track["url"] = get_file_url(filepath)
     return track
@@ -200,12 +210,14 @@ def record_audio(request: Request, duration: float = Form(...)):
     Starts mic recording for dynamic duration.
     """
     if duration <= 0 or duration > 60.0:
-        raise HTTPException(status_code=400, detail="Duration must be between 1 and 60 seconds.")
-    
+        raise HTTPException(
+            status_code=400, detail="Duration must be between 1 and 60 seconds."
+        )
+
     try:
         filepath = recording_service.record_microphone(duration)
         filename = os.path.basename(filepath)
-        
+
         # Analyze
         analysis = analysis_service.analyze_audio(filepath)
         # Save to library
@@ -252,7 +264,7 @@ def master_audio(request: Request, req: MasteringRequest):
             low_eq_db=req.low_eq_db,
             high_eq_db=req.high_eq_db,
             thresh_db=req.threshold_db,
-            ratio=req.ratio
+            ratio=req.ratio,
         )
         filename = os.path.basename(filepath)
 
@@ -275,16 +287,16 @@ def apply_effects(request: Request, req: EffectRequest):
     """
     try:
         filepath = effects_service.process_effects(
-            req.filepath,
-            req.effect_type,
-            req.params
+            req.filepath, req.effect_type, req.params
         )
         filename = os.path.basename(filepath)
 
         # Analyze
         analysis = analysis_service.analyze_audio(filepath)
         # Add to library
-        track = library_service.add_track(filepath, filename, [req.effect_type], analysis)
+        track = library_service.add_track(
+            filepath, filename, [req.effect_type], analysis
+        )
         track["url"] = get_file_url(filepath)
         return track
     except Exception as e:
@@ -306,7 +318,7 @@ def sample_trigger(req: SamplerRequest):
             decay_sec=req.decay_sec,
             sustain_level=req.sustain_level,
             release_sec=req.release_sec,
-            gate_time_sec=req.gate_time_sec
+            gate_time_sec=req.gate_time_sec,
         )
         filename = os.path.basename(filepath)
 
@@ -334,7 +346,7 @@ def synthesize_tone(req: SynthRequest):
             vibrato_rate=req.vibrato_rate,
             vibrato_depth=req.vibrato_depth,
             tremolo_rate=req.tremolo_rate,
-            tremolo_depth=req.tremolo_depth
+            tremolo_depth=req.tremolo_depth,
         )
         filename = os.path.basename(filepath)
 

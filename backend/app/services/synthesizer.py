@@ -8,14 +8,22 @@ import logging
 
 logger = logging.getLogger("studio_pro_suite")
 
+
 class SynthesizerService:
     def __init__(self):
         os.makedirs(settings.TEMP_DIR, exist_ok=True)
 
-    def generate_tone(self, osc_type: str = "sine", frequency: float = 440.0, duration: float = 1.0,
-                      vibrato_rate: float = 0.0, vibrato_depth: float = 0.0,
-                      tremolo_rate: float = 0.0, tremolo_depth: float = 0.0,
-                      sample_rate: int = 44100) -> str:
+    def generate_tone(
+        self,
+        osc_type: str = "sine",
+        frequency: float = 440.0,
+        duration: float = 1.0,
+        vibrato_rate: float = 0.0,
+        vibrato_depth: float = 0.0,
+        tremolo_rate: float = 0.0,
+        tremolo_depth: float = 0.0,
+        sample_rate: int = 44100,
+    ) -> str:
         """
         Generates a synthetic waveform tone with LFO vibrato (frequency modulation) and tremolo (amplitude modulation).
         """
@@ -74,22 +82,30 @@ class SynthesizerService:
 
         return output_path
 
-    def generate_chord(self, frequencies: list[float], osc_type: str = "sine", duration: float = 1.0, sample_rate: int = 44100) -> str:
+    def generate_chord(
+        self,
+        frequencies: list[float],
+        osc_type: str = "sine",
+        duration: float = 1.0,
+        sample_rate: int = 44100,
+    ) -> str:
         """
         E14: Generates a chord from a list of frequencies. Limits polyphony to 16 notes to prevent CPU exhaustion.
         """
         if len(frequencies) > 16:
-            logger.warning(f"Polyphony limit exceeded. Truncating {len(frequencies)} notes to 16.")
+            logger.warning(
+                f"Polyphony limit exceeded. Truncating {len(frequencies)} notes to 16."
+            )
             frequencies = frequencies[:16]
-            
+
         if not frequencies:
             raise ValueError("No frequencies provided for chord generation.")
-            
+
         n_samples = int(duration * sample_rate)
         t = np.linspace(0, duration, n_samples, endpoint=False)
-        
+
         mixed_wave = np.zeros(n_samples)
-        
+
         for freq in frequencies:
             phase = 2 * np.pi * freq * t
             if osc_type == "sine":
@@ -103,7 +119,7 @@ class SynthesizerService:
             else:
                 wave = np.sin(phase)
             mixed_wave += wave
-            
+
         # Apply fade-in/fade-out
         fade_samples = int(0.01 * sample_rate)
         if len(mixed_wave) > 2 * fade_samples:
@@ -111,15 +127,15 @@ class SynthesizerService:
             fade_out = np.linspace(1.0, 0.0, fade_samples)
             mixed_wave[:fade_samples] *= fade_in
             mixed_wave[-fade_samples:] *= fade_out
-            
+
         # Normalize
         peak = np.max(np.abs(mixed_wave))
         if peak > 0.0:
             mixed_wave = (mixed_wave / peak) * 0.89
-            
+
         filename = f"chord_{osc_type}_{uuid.uuid4().hex}.wav"
         output_path = os.path.join(settings.TEMP_DIR, filename)
         sf.write(output_path, mixed_wave, sample_rate)
         logger.info(f"Synthesizer exported chord to {output_path}")
-        
+
         return output_path
